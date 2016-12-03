@@ -36,13 +36,11 @@ $(document).ready(function(){
 		$("#contenedor").html(templateEstud);
 	});
 
-  $('.button-collapse').sideNav({
+  	$('.button-collapse').sideNav({
       menuWidth: 200,
       edge: 'right',
       closeOnClick: true,
       draggable: true
     });
   $("#contenedor").on("click", ".vermas", guardarDirigir);
-  $(".absolute").click(desaparecerMenu);
-	$(".nav-wrapper i").click(menu);
 });
