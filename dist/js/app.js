@@ -43,6 +43,4 @@ $(document).ready(function(){
       draggable: true
     });
   $("#contenedor").on("click", ".vermas", guardarDirigir);
-  $(".absolute").click(desaparecerMenu);
-	$(".nav-wrapper i").click(menu);
 });
