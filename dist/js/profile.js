@@ -16,6 +16,14 @@ var cargarPagina = function() {
 						 			   .replace("{{years}}", response[data-1].edad)
 						 			   .replace("{{country}}", response[data-1].sede));
 	});
+
+	$(".check").click(marcarPuntaje);
 };
 
 $(document).ready(cargarPagina);
+
+var marcarPuntaje = function(){
+	$(this).siblings().removeClass("seleccionado");
+    $(this).addClass("seleccionado");
+    $(this).prevAll().addClass("seleccionado");
+}
