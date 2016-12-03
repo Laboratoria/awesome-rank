@@ -44,6 +44,8 @@ $(document).ready(function(){
     }
   );
   $("#contenedor").on("click", ".vermas", guardarDirigir);
+  $(".absolute").click(desaparecerMenu);
+	$(".nav-wrapper i").click(menu);
 });
 
 $(function() {
@@ -55,3 +57,12 @@ $(function() {
 	});
 });
 
+var menu= function(){
+	$("#menu").animate({width:'toggle'},350);
+	$(".absolute").show();
+}
+
+var desaparecerMenu= function(){
+	$("#menu").animate({width:'toggle'},350);
+	$(".absolute").hide();
+}
