@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "touch dist/css/main.css && stylus src/stylus/main.styl -o dist/css/main.css"
+    "postinstall": "mkdir -p dist/css && stylus src/stylus/main.styl -o dist/css/main.css"
   },
   "keywords": [
     "git",
