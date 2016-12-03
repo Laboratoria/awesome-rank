@@ -4,62 +4,89 @@
         "edad": "26 años",
         "foto": "img/girls/dana.jpg",
         "nacionalidad": "Chilena",
-        "sede": "Chile"
+        "sede": "Chile",
+        "github": "https://github.com/Danamorah",
+        "linkedin": "https://cl.linkedin.com/in/daniela-mora-herrera-59976267"
     },
     {
         "nombre": "Karen Orozco",
         "edad": "27 años",
         "foto": "img/girls/karen.jpg",
         "nacionalidad": "Mexicana",
-        "sede": "México"
+        "sede": "México",
+        "github": "https://github.com/kareneos",
+        "linkedin": "https://mx.linkedin.com/in/karen-estela-orozco-96a083124"
     },
     {
         "nombre": "Diana Navarro",
         "edad": "19 años",
         "foto": "img/girls/diana.jpg",
         "nacionalidad": "Peruana",
-        "sede": "Perú"
+        "sede": "Perú",
+        "github": "https://github.com/diananr",
+        "linkedin": "https://pe.linkedin.com/in/diana-navarro-ruiz"
     },
     {
         "nombre": "Paola Ortiz",
         "edad": "25 años",
         "foto": "img/girls/paola.jpeg",
         "nacionalidad": "Peruana",
-        "sede": "Perú"
+        "sede": "Perú",
+        "github": "https://github.com/paolaozv",
+        "linkedin": "https://pe.linkedin.com/in/paola-ortiz-de-zevallos"
     },
     {
         "nombre": "Maryori Quiroz",
         "edad": "19 años",
         "foto": "img/girls/maryori.jpg",
         "nacionalidad": "Peruana",
-        "sede": "Perú"
+        "sede": "Perú",
+        "github": "https://github.com/AmySeo12",
+        "linkedin": "https://pe.linkedin.com/in/maryori-quiroz"
     },
     {
         "nombre": "Susana Opazo",
         "edad": "25 años",
         "foto": "img/girls/su.jpg",
         "nacionalidad": "Chilena",
-        "sede": "Chile"
+        "sede": "Chile",
+        "github": "http://github.com/opazisimo",
+        "linkedin": "https://cl.linkedin.com/in/susana-opazo"
     },
     {
         "nombre": "Alexandra Neira",
         "edad": "30 años",
         "foto": "img/girls/alexandra.jpeg",
         "nacionalidad": "Chilena",
-        "sede": "Chile"
+        "sede": "Chile",
+        "github": "https://github.com/nerdale",
+        "linkedin": "https://www.linkedin.com/in/alexandraneira"
     },
     {
         "nombre": "Elisa Martinez",
         "edad": "25 años",
         "foto": "img/girls/elisa.jpg",
         "nacionalidad": "Mexicana",
-        "sede": "México"
+        "sede": "México",
+        "github": "https://github.com/ElisaME",
+        "linkedin": "https://www.linkedin.com/in/ElisaME"
     },
     {
         "nombre": "Maciel Porraz",
         "edad": "27 años",
         "foto": "img/girls/maciel.jpg",
         "nacionalidad": "Mexicana",
-        "sede": "México"
+        "sede": "México",
+        "github":"https://github.com/mcpoe",
+        "linkedin": "https://www.linkedin.com/in/mcpoe"
+    },
+    {
+        "nombre": "Iván Medina",
+        "edad": "22 años",
+        "foto": "",
+        "nacionalidad": "Peruano",
+        "sede": "Perú",
+        "github": "https://github.com/ivandevp",
+        "linkedin": "https://www.linkedin.com/in/medinadiazivan"
     }
 ]
