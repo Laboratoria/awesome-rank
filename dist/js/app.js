@@ -32,37 +32,15 @@ $(document).ready(function(){
 							.replace("{{sede}}", estudiante.sede)
 							.replace("{{number}}", i+1)
                             .replace("{{imagen}}", estudiante.foto);
+        });
+		$("#contenedor").html(templateEstud);
 	});
-	$("#contenedor").html(templateEstud);
-});
 
   $('.button-collapse').sideNav({
-      menuWidth: 200, // Default is 240
-      edge: 'right', // Choose the horizontal origin
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      draggable: true // Choose whether you can drag to open on touch screens
-    }
-  );
+      menuWidth: 200,
+      edge: 'right',
+      closeOnClick: true,
+      draggable: true
+    });
   $("#contenedor").on("click", ".vermas", guardarDirigir);
-  $(".absolute").click(desaparecerMenu);
-	$(".nav-wrapper i").click(menu);
 });
-
-$(function() {
-	$(".ratyli").ratyli();
-	$("#demo5 .ratyli").ratyli({
-		full:'<i class="small material-icons">star</i>',
-		empty:'<i class="small material-icons">star</i>',
-
-	});
-});
-
-var menu= function(){
-	$("#menu").animate({width:'toggle'},350);
-	$(".absolute").show();
-}
-
-var desaparecerMenu= function(){
-	$("#menu").animate({width:'toggle'},350);
-	$(".absolute").hide();
-}
