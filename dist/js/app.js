@@ -5,8 +5,8 @@ var template= '<div class="card contiene col s12 m12">'+
 				       	'</div>'+
 				    '</div>'+
 				    '<div class="col s5 m6">'+
-					    '<p class="nomAlum"><span>{{nombre}}</span></p>'+
-					    '<p class="nomEdad"><span>{{edad}}</span></p>'+
+					    '<p class="nomAlum"><span>{{nombre}} {{apellido}}</span></p>'+
+					    '<p class="nomEdad"><span>{{edad}} años</span></p>'+
 					    '<p class="nomSede"><span>{{sede}}</span></p>'+
 					'</div>'+
 					'<div class="col s2 m3">'+
@@ -22,20 +22,23 @@ var guardarDirigir= function(){
 };
 
 $(document).ready(function(){
-	$.get("/info.json", function(response){
-		var templateEstud= "";
-		$.each(response, function(i, estudiante){
-			templateEstud += template
-							.replace("{{nombre}}", estudiante.nombre)
-							.replace("{{edad}}", estudiante.edad)
-							.replace("{{nacionalidad}}", estudiante.nacionalidad)
-							.replace("{{sede}}", estudiante.sede)
-							.replace("{{number}}", i+1)
-                            .replace("{{imagen}}", estudiante.foto);
-        });
-		$("#contenedor").html(templateEstud);
+	$.ajax({
+		url:"https://awesome-rank-api.herokuapp.com/api/developers",
+		type: "GET",
+		success: function(response){
+			var templateEstud= "";
+			$.each(response.developers, function(i, estudiante){
+				templateEstud += template
+								.replace("{{nombre}}", estudiante.name)
+								.replace("{{apellido}}", estudiante.lastname)
+								.replace("{{edad}}", estudiante.age)
+								.replace("{{sede}}", estudiante.campus)
+								.replace("{{number}}", i+1)
+	                            .replace("{{imagen}}", estudiante.photoUrl);
+	        });
+			$("#contenedor").html(templateEstud);
+		}
 	});
-
   	$('.button-collapse').sideNav({
       menuWidth: 200,
       edge: 'right',
