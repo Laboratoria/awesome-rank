@@ -36,7 +36,7 @@ $(document).ready(function(){
 		$("#contenedor").html(templateEstud);
 	});
 
-  $('.button-collapse').sideNav({
+  	$('.button-collapse').sideNav({
       menuWidth: 200,
       edge: 'right',
       closeOnClick: true,
