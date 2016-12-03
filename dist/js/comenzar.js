@@ -2,10 +2,10 @@ var template = '<div class="col s12 m12">'+
                     '<ul class="collapsible" data-collapsible="accordion">'+
                        '<li class="active">'+
 		                	'<div class="collapsible-header bg-header">'+
-		                		'<i class="small material-icons color-icons"></i>'+ 
+		                		'<i class="small material-icons color-icons"></i>'+
 		                		'{{question}}'+
 		                	'</div>'+
-		                   	'<div class="collapsible-body">'+ 
+		                   	'<div class="collapsible-body">'+
 		                   		"<p>{{answer}}</p>"+
                         	'</div></li></ul></div>';
 
