@@ -12,9 +12,10 @@ var template = '<div class="col s12 m12">'+
 $(document).ready(function(){
   // carousel material
   $('.carousel.carousel-slider').carousel({full_width: true});
+  $('.collapsible').collapsible();
 
 
-	$.get("/preguntas.json", function(response){
+	/*$.get("/preguntas.json", function(response){
 		var templateQuestion= "";
 		$.each(response.HSE, function(i, estudiante){
 			templateQuestion += template.replace("{{question}}", estudiante.pregunta).replace("{{answer}}", estudiante.respuesta);
@@ -31,5 +32,5 @@ $(document).ready(function(){
 		});
 		$("#technical").html(templateQuestion);
 			$(".collapsible").collapsible();
-	});
+	});*/
 });
