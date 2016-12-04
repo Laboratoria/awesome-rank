@@ -15,10 +15,10 @@ var cargarPagina = function() {
 			var pos = params.indexOf("=");
 			var data = params.substr(pos + 1);
 			$("#students").append(mockup.replace("{{image}}", response.developers[data-1].photoUrl)
-						 			   .replace("{{name}}", response.developers[data-1].name)
-						 			   .replace("{{lastname}}", response.developers[data-1].lastname)
-						 			   .replace("{{years}}", response.developers[data-1].age)
-						 			   .replace("{{country}}", response.developers[data-1].campus));
+						 			    .replace("{{name}}", response.developers[data-1].name)
+						 			    .replace("{{lastname}}", response.developers[data-1].lastname)
+						 			    .replace("{{years}}", response.developers[data-1].age)
+						 			    .replace("{{country}}", response.developers[data-1].campus));
 			$("#contenedor").html(templateEstud);
 		}
 	});
