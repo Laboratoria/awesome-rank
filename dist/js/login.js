@@ -1,8 +1,14 @@
 var loadPage = function() {
 	$("#go").click(validate);
+	if(Boolean(status) === true){
+		window.location.href ="/estudiantes.html";
+	}
 };
 
+var status= localStorage.getItem("status");
+
 $(document).ready(loadPage);
+
 
 var alert= function(){
 	swal({
@@ -24,7 +30,7 @@ var validate = function() {
 
 	if (name > 0 && password > 0) {
 		$.post("http://awesome-rank-api.herokuapp.com/api/login", {username: id, password: pass}, function(datos, status,xhr){
-			console.log(datos.success);
+			localStorage.setItem("status", datos.success);
 			if(datos.success === true){
 				window.location.href = "estudiantes.html";
 			}else{
