@@ -27,7 +27,7 @@
         "linkedin": "https://pe.linkedin.com/in/diana-navarro-ruiz"
     },
     {
-        "nombre": "Paola Ortiz",
+        "nombre": "Paola Ortiz de Zevallos",
         "edad": "25 años",
         "foto": "img/girls/paola.jpeg",
         "nacionalidad": "Peruana",
@@ -83,7 +83,7 @@
     {
         "nombre": "Iván Medina",
         "edad": "22 años",
-        "foto": "",
+        "foto": "img/girls/ivan.jpg",
         "nacionalidad": "Peruano",
         "sede": "Perú",
         "github": "https://github.com/ivandevp",
