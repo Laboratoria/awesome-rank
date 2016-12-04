@@ -16,12 +16,19 @@ var template= '<div class="card contiene col s12 m12">'+
 					'</div>'+
 			   '</div>';
 
+var plantillaCreditos = '<div class="card-credit center-align">'+
+							'<img src="**imagen**" class="circle credit-image">'+
+          					'<p class="margin-0">**name**</p>'+
+      						'<a href="**github**"><i class="fa fa-github credit-icon fa-lg" aria-hidden="true"></i></a>'+
+         	 				'<a href="**linkedin**"><i class="fa fa-linkedin credit-icon fa-lg" aria-hidden="true"></i></a>'+
+        				'</div>';
+
 var guardarDirigir= function(){
 	var self = $(this).attr("data");
 	window.location.href= "perfil.html" + "?data=" + self;
 };
 
-$(document).ready(function(){
+var ajaxStudents = function(){
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
@@ -46,4 +53,28 @@ $(document).ready(function(){
       draggable: true
     });
   $("#contenedor").on("click", ".vermas", guardarDirigir);
-});
+}
+
+var ajaxCreditos = function(){
+	$.ajax({
+		url:"/info.json",
+		type: "GET",
+		success: function(response){
+			var templateCred= "";
+			$.each(response, function(i, developer){
+				templateCred += plantillaCreditos
+								.replace("**imagen**", developer.foto)
+								.replace("**name**", developer.nombre)
+								.replace("**github**", developer.github)
+								.replace("**linkedin**", developer.linkedin);
+	        });
+			$("#creditoStudent").html(templateCred);
+		}
+	});
+}
+
+var cargaPag = function(){
+	ajaxStudents();
+	ajaxCreditos();
+}
+$(document).ready(cargaPag);
