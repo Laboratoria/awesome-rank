@@ -121,6 +121,16 @@ var savePoints = function() {
 		ratings: JSON.stringify(ratings)
 	}, function(response) {
 		console.log(response);
-		window.location.href = "/estudiantes.html";
+		swal({
+			title: "Awesome Rank",
+			text: "Your score has been saved successfully.",
+			type: "success",
+			confirmButtonColor: "#F9A91A",
+			confirmButtonText: "OK",
+			closeOnConfirm: false,
+			closeOnCancel: false
+		}, function () {
+			window.location.href = "/estudiantes.html";
+		});
 	});
 };
