@@ -102,6 +102,7 @@ var scoreTechnical = function() {
 };
 
 var savePoints = function() {
+	$(this).attr("disabled", true);
 	var ratings = [];
 	var user = JSON.parse(sessionStorage.getItem("user"));
 	var userId = user.id;
@@ -132,5 +133,6 @@ var savePoints = function() {
 		}, function () {
 			window.location.href = "/estudiantes.html";
 		});
+		$(".btn-save").removeAttr("disabled");
 	});
 };
