@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Estudiantes</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo center">
+          <img src="img/logolaboratoria.png" alt="Laboratoria" class="logolaboratoria">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="carousel carousel-slider center" data-indicators="true">
+      <div class="carousel-item dark white-text" href="#one!">
+        <h2>Welcome!</h2>
+        <p class="white-text">We help you to connect with the best talent</p>
+        <p class="white-text">To see the instructions flip to the right</p>
+      </div>
+      <div class="carousel-item amber white-text" href="#two!">
+        <h2>First step: <br> Choose a developer</h2>
+        <p class="white-text"></p>
+        <div>
+          <img src="img/developer.png" alt="" class="imageProfileTop">
+          <div class="pulse">
+            <img src="img/hand.png" alt="hand clicking icon">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item dark white-text" href="#three!">
+        <h2>Second step: <br> Choose a category</h2>
+        <p class="white-text"></p>
+        <img src="img/rank.png" alt="" class="imageProfileTop">
+        <div class="pulse">
+          <img src="img/hand.png" alt="hand clicking icon">
+        </div>
+      </div>
+      <div class="carousel-item especial-height" href="#three!">
+        <h2>Third step: <br> Questions & Answers</h2>
+        <p class="white-text"></p>
+        <div class="container">
+          <div id="question-view">
+            <div class="row">
+              <div class="col s12 m12">
+                <ul class="collapsible" data-collapsible="accordion">
+                  <!-- Start social questions -->
+                  <li>
+                    <div class="collapsible-header bg-header">
+                      <i class="small material-icons color-icons"></i>
+                      Social Skills
+                    </div>
+                    <div class="collapsible-body">
+                      <!-- comienzo de otro collapse -->
+                      <div class="row">
+                        <div class="col s12 m12">
+                          <ul class="collapsible" data-collapsible="accordion" id="social">
+                            <!-- Start question -->
+                            <li>
+                              <div class="collapsible-header bg-header collapseInside">Stress Management</div>
+                              <div class="collapsible-body">
+                                <div class="question" id="social1">
+                                </div>
+                              </div>
+                            </li>
+                            <!-- End question -->
+                            <!-- Start question -->
+                            <li>
+                              <div class="collapsible-header bg-header collapseInside">Communication</div>
+                              <div class="collapsible-body">
+                                <div class="question" id="social2">
+                                </div>
+                              </div>
+                            </li>
+                            <!-- End question -->
+                            <!-- Start question -->
+                            <li>
+                              <div class="collapsible-header bg-header collapseInside">Response to authority</div>
+                              <div class="collapsible-body">
+                                <div class="question" id="social3">
+                                </div>
+                              </div>
+                            </li>
+                            <!-- End question -->
+                            <!-- Start question -->
+                            <li>
+                              <div class="collapsible-header bg-header collapseInside">Engagement</div>
+                              <div class="collapsible-body">
+                                <div class="question" id="social4">
+                                </div>
+                              </div>
+                            </li>
+                            <!-- End question -->
+                          </ul>
+                        </div>
+                      </div>
+                    <!-- end collapse -->
+                    </div>
+                  </li>
+                  <!-- End social questions -->
+                  <!-- Start technical questions -->
+                  <li>
+                    <div class="collapsible-header bg-header">
+                      <i class="small material-icons color-icons"></i>
+                      Technical Skills
+                    </div>
+                    <div class="collapsible-body">
+                      <!-- comienzo de otro collapse -->
+                      <div class="row">
+                        <div class="col s12 m12">
+                          <ul class="collapsible" data-collapsible="accordion" id="technical">
+                            <!-- Start question -->
+                          </ul>
+                        </div>
+                      </div>
+                        <!-- fin collapse -->
+                    </div>
+                  </li>
+                  <!-- End technical questions -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item amber white-text" href="#four!">
+        <h2>Now: <br> Start to choose a developer</h2>
+        <p>To see the instructions again flip to the right</p>
+        <img src="img/search.png" alt="" class="center" id="search">
+        <div class="carousel-fixed-item center">
+          <a class="btn waves-effect darken-text-2 black-btn" href="estudiantes.html">Start</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light darken-text-2 yellow-btn btn-skip">Skip<br>➥</a>
+  </div>
+
+  <script src="//code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/comenzar.js"></script>
+</body>
+
+</html>
