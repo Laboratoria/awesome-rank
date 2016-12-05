@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('.logo').addClass('logo2');
 	setTimeout( function() {
-	    window.location = "estudiantes.html";
+	    window.location = "empezar.html";
 	}, 3500);
 });

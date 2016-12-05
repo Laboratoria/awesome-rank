@@ -1,46 +1,46 @@
 {
     "HSE":[
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         },
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         },
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         },
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         },
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         }
     ],
     "TECHNICAL":[
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         },
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         },
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         },
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         },
         {
-            "pregunta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "respuesta":"lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "pregunta":"Pregunta",
+            "respuesta":"Respuesta"
         }
     ]
 }
