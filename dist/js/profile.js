@@ -6,7 +6,44 @@ var mockup = '<div class="row">' +
 				'</div>' +
 			 '</div>';
 
+var templateSocial = '<div class="question" id="{{id}}">' +
+			                  '<h6>{{social}}</h6>' +
+			                  '<div class="demo">' +
+			                    '<i class="fa fa-check fa-2x check"></i>' +
+			                    '<i class="fa fa-check fa-2x check"></i>' +
+			                    '<i class="fa fa-check fa-2x check"></i>' +
+			                    '<i class="fa fa-check fa-2x check"></i>' +
+			                    '<i class="fa fa-check fa-2x check"></i>' +
+			                  '</div>' +
+			                '</div>';
+
+var templateTechnical = '<div class="question" id="{{id}}">' +
+				                  '<h6>{{technical}}</h6>' +
+				                  '<div class="demo">' +
+				                    '<i class="fa fa-check fa-2x check"></i>' +
+				                    '<i class="fa fa-check fa-2x check"></i>' +
+				                    '<i class="fa fa-check fa-2x check"></i>' +
+				                    '<i class="fa fa-check fa-2x check"></i>' +
+				                    '<i class="fa fa-check fa-2x check"></i>' +
+				                  '</div>' +
+				                '</div>';
+
 var cargarPagina = function() {
+	profile();
+	scoreSocial();
+	scoreTechnical();
+	$(document).on("click", ".check", marcarPuntaje);
+};
+
+$(document).ready(cargarPagina);
+
+var marcarPuntaje = function(){
+	$(this).siblings().removeClass("seleccionado");
+  $(this).addClass("seleccionado");
+  $(this).prevAll().addClass("seleccionado");
+};
+
+var profile = function() {
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
@@ -15,21 +52,49 @@ var cargarPagina = function() {
 			var pos = params.indexOf("=");
 			var data = params.substr(pos + 1);
 			$("#students").append(mockup.replace("{{image}}", response.developers[data-1].photoUrl)
-						 			    .replace("{{name}}", response.developers[data-1].name)
-						 			    .replace("{{lastname}}", response.developers[data-1].lastname)
-						 			    .replace("{{years}}", response.developers[data-1].age)
-						 			    .replace("{{country}}", response.developers[data-1].campus));
-			$("#contenedor").html(templateEstud);
+												 			    .replace("{{name}}", response.developers[data-1].name)
+												 			    .replace("{{lastname}}", response.developers[data-1].lastname)
+												 			    .replace("{{years}}", response.developers[data-1].age)
+												 			    .replace("{{country}}", response.developers[data-1].campus));
 		}
 	});
-
-	$(".check").click(marcarPuntaje);
 };
 
-$(document).ready(cargarPagina);
+var scoreSocial = function() {
+	$.ajax({
+		url:"https://awesome-rank-api.herokuapp.com/api/questions",
+		type: "GET",
+		success: function(response){
+			$.each(response.questions, function(i, question) {
+				if (question.type === "hse-1") {
+					$("#social1").append(templateSocial.replace("{{social}}", question.description)
+																			       .replace("{{id}}", question.id));
+				} else if (question.type === "hse-2") {
+					$("#social2").append(templateSocial.replace("{{social}}", question.description)
+																			       .replace("{{id}}", question.id));
+				} else if (question.type === "hse-3") {
+					$("#social3").append(templateSocial.replace("{{social}}", question.description)
+																			       .replace("{{id}}", question.id));
+				} else if (question.type === "hse-4") {
+					$("#social4").append(templateSocial.replace("{{social}}", question.description)
+																			       .replace("{{id}}", question.id));
+				}
+			});
+		}
+	});
+};
 
-var marcarPuntaje = function(){
-	$(this).siblings().removeClass("seleccionado");
-    $(this).addClass("seleccionado");
-    $(this).prevAll().addClass("seleccionado");
-}
+var scoreTechnical = function() {
+	$.ajax({
+		url:"https://awesome-rank-api.herokuapp.com/api/questions",
+		type: "GET",
+		success: function(response){
+			$.each(response.questions, function(i, question) {
+				if (question.type === "tech") {
+					$("#technical").append(templateTechnical.replace("{{technical}}", question.description)
+																							    .replace("{{id}}", question.id));
+				}
+			});
+		}
+	});
+};
