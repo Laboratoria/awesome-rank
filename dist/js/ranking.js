@@ -2,11 +2,11 @@ var template = '<div class="card contiene col s12 m12">' +
 		          '<div class="row margin">' +
 		            '<div class="col s4 col m4">' +
 		              '<div class="image">' +
-		                '<img src="img/girls/paola.jpeg">' +
+		                '<img src="{{image}}" alt="{{name}} {{lastname}}">' +
 		              '</div>' +
 		            '</div>' +
 		            '<div class="col s8 col m8 personal-info">' +
-		              '<p class="nomAlum"><span>{{name}} {{lastame}}</span></p>' +
+		              '<p class="nomAlum"><span>{{name}} {{lastname}}</span></p>' +
 		              '<p class="nomEdad"><span>{{age}}</span></p>' +
 		              '<p class="nomSede"><span>{{campus}}</span></p>' +
 		            '</div>' +
@@ -46,12 +46,13 @@ var loadPage = function() {
 			var developer;
 			for (var i = 0, len = response.ranking.length; i < len; i += 2) {
 				developer = response.ranking[i];
-				$("#results").append(template.replace("{{name}}", developer.name)
-					                         .replace("{{lastame}}", developer.lastname)
+				$("#results").append(template.replace(/{{name}}/g, developer.name)
+					                         .replace(/{{lastname}}/g, developer.lastname)
+					                         .replace("{{image}}", developer.photoUrl)
 					                         .replace("{{age}}", developer.age)
 					                         .replace("{{campus}}", developer.campus)
-					                         .replace("{{average-hse}}", developer.average)
-					                         .replace("{{average-tech}}", response.ranking[i + 1].average));
+					                         .replace("{{average-hse}}", Number(developer.average).toFixed(2))
+					                         .replace("{{average-tech}}", Number(response.ranking[i + 1].average).toFixed(2)));
 			}
 
 		}
