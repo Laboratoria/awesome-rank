@@ -29,6 +29,7 @@ var loadPage = function() {
 	// carousel material
 	$('.carousel.carousel-slider').carousel({full_width: true});
   $('.collapsible').collapsible();
+  $(".btn-skip").click(skip);
   social();
   technical();
 };
@@ -84,4 +85,13 @@ var technical = function() {
 		$(".collapsible").collapsible();
 		}
 	});
+};
+
+var skip = function () {
+	var status = Boolean(sessionStorage.getItem("status"));
+	if (status) {
+		window.location.href = "/estudiantes.html";
+	} else {
+		window.location.href = "/login.html";
+	}
 };

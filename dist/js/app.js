@@ -73,8 +73,15 @@ var ajaxCreditos = function(){
 	});
 }
 
+var logOut = function() {
+	sessionStorage.removeItem("status");
+	sessionStorage.removeItem("user");
+	window.location.href = "/login.html";
+};
+
 var cargaPag = function(){
 	ajaxStudents();
 	ajaxCreditos();
+	$(".btn-logout").click(logOut);
 }
 $(document).ready(cargaPag);
