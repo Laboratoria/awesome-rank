@@ -1,4 +1,4 @@
-var mockup = '<div class="row">' +
+var mockup = '<div class="row profile" data-id="{{id}}">' +
 				'<div class="col s12 m12 center-align">' +
 					'<img src="{{image}}" class="img-profile circle">' +
 					'<h4 class="name">{{name}} {{lastname}}</h4>' +
@@ -32,6 +32,7 @@ var cargarPagina = function() {
 	profile();
 	scoreSocial();
 	scoreTechnical();
+	$(".btn-save").click(savePoints);
 	$(document).on("click", ".check", marcarPuntaje);
 };
 
@@ -52,10 +53,11 @@ var profile = function() {
 			var pos = params.indexOf("=");
 			var data = params.substr(pos + 1);
 			$("#students").append(mockup.replace("{{image}}", response.developers[data-1].photoUrl)
-												 			    .replace("{{name}}", response.developers[data-1].name)
-												 			    .replace("{{lastname}}", response.developers[data-1].lastname)
-												 			    .replace("{{years}}", response.developers[data-1].age)
-												 			    .replace("{{country}}", response.developers[data-1].campus));
+						 			    .replace("{{name}}", response.developers[data-1].name)
+						 			    .replace("{{lastname}}", response.developers[data-1].lastname)
+						 			    .replace("{{years}}", response.developers[data-1].age)
+						 			    .replace("{{country}}", response.developers[data-1].campus)
+						 			    .replace("{{id}}", response.developers[data-1].id));
 		}
 	});
 };
@@ -97,4 +99,23 @@ var scoreTechnical = function() {
 			});
 		}
 	});
+};
+
+var savePoints = function() {
+	var ratings = [];
+	var user = JSON.parse(sessionStorage.getItem("user"));
+	var userId = user.id;
+	var developerId = parseInt($(".profile").attr("data-id"));
+	$(".demo").each(function (i, question) {
+		var questionId = parseInt($(question).parent().attr("id"));
+		var points = $(question).find(".seleccionado").length;
+		var rating = {
+			userId: userId,
+			developerId: developerId,
+			questionId: questionId,
+			points: points
+		};
+		ratings.push(rating);
+	});
+	console.log(ratings);
 };
