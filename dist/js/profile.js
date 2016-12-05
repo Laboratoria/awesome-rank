@@ -40,8 +40,8 @@ $(document).ready(cargarPagina);
 
 var marcarPuntaje = function(){
 	$(this).siblings().removeClass("seleccionado");
-  $(this).addClass("seleccionado");
-  $(this).prevAll().addClass("seleccionado");
+    $(this).addClass("seleccionado");
+    $(this).prevAll().addClass("seleccionado");
 };
 
 var profile = function() {
