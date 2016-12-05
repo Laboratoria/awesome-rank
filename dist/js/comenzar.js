@@ -29,7 +29,8 @@ var loadPage = function() {
 	// carousel material
   $('.carousel.carousel-slider').carousel({full_width: true});
   $('.collapsible').collapsible();
-  $(".btn-skip").click(skip);
+  $(".btn-skip").click(userValidation);
+  $(".btn-start").click(userValidation);
   social();
   technical();
 };
@@ -87,7 +88,7 @@ var technical = function() {
 	});
 };
 
-var skip = function () {
+var userValidation = function () {
 	var status = Boolean(sessionStorage.getItem("status"));
 	if (status) {
 		window.location.href = "/estudiantes.html";
