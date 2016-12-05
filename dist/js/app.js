@@ -19,8 +19,8 @@ var template= '<div class="card contiene col s12 m12">'+
 var plantillaCreditos = '<div class="card-credit center-align">'+
 							'<img src="**imagen**" class="circle credit-image">'+
           					'<p class="margin-0">**name**</p>'+
-      						'<a href="**github**"><i class="fa fa-github credit-icon fa-lg" aria-hidden="true"></i></a>'+
-         	 				'<a href="**linkedin**"><i class="fa fa-linkedin credit-icon fa-lg" aria-hidden="true"></i></a>'+
+      						'<a href="**github**"><i class="fa fa-github credit-icon fa-lg" aria-hidden="true" target="_blank"></i></a>'+
+         	 				'<a href="**linkedin**"><i class="fa fa-linkedin credit-icon fa-lg" aria-hidden="true" target="_blank"></i></a>'+
         				'</div>';
 
 var guardarDirigir= function(){
