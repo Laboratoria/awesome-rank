@@ -1,16 +1,16 @@
 var loadPage = function() {
-	$("#go").click(validate);
-	if(Boolean(status) === true){
+	var status = sessionStorage.getItem("status") == null ? false : sessionStorage.getItem("status");
+	if(status) {
 		window.location.href ="/estudiantes.html";
 	}
+	$("#go").click(validate);
 };
 
-var status= localStorage.getItem("status");
 
 $(document).ready(loadPage);
 
 
-var alert = function(){
+var showMessage = function(){
 	swal({
 		title: "",
 		text: "Username or password invalid",
@@ -30,14 +30,15 @@ var validate = function() {
 
 	if (name > 0 && password > 0) {
 		$.post("http://awesome-rank-api.herokuapp.com/api/login", {username: id, password: pass}, function(datos, status,xhr) {
-			localStorage.setItem("status", datos.success);
+			sessionStorage.setItem("status", datos.success ? 1 : 0);
+			sessionStorage.setItem("user", JSON.stringify(datos.user));
 			if(datos.success === true) {
 				window.location.href = "estudiantes.html";
 			} else {
-				alert();
+				showMessage();
 			}
 		});
 	} else {
-		alert();
+		showMessage();
 	}
 };
