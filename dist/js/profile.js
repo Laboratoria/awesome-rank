@@ -110,12 +110,17 @@ var savePoints = function() {
 		var questionId = parseInt($(question).parent().attr("id"));
 		var points = $(question).find(".seleccionado").length;
 		var rating = {
-			userId: userId,
-			developerId: developerId,
-			questionId: questionId,
+			UserId: userId,
+			DeveloperId: developerId,
+			QuestionId: questionId,
 			points: points
 		};
 		ratings.push(rating);
 	});
-	console.log(ratings);
+	$.post("https://awesome-rank-api.herokuapp.com/api/ratings", {
+		ratings: JSON.stringify(ratings)
+	}, function(response) {
+		console.log(response);
+		window.location.href = "/estudiantes.html";
+	});
 };
