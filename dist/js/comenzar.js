@@ -27,7 +27,7 @@ var templateQTechnical = '<div class="question">' +
 
 var loadPage = function() {
 	// carousel material
-	$('.carousel.carousel-slider').carousel({full_width: true});
+  $('.carousel.carousel-slider').carousel({full_width: true});
   $('.collapsible').collapsible();
   $(".btn-skip").click(skip);
   social();
@@ -45,21 +45,21 @@ var social = function() {
 			$.each(response.questions, function(i, question) {
 				if (question.type === "hse-1") {
 					$("#social1").append(templateSocial.replace("{{social}}", question.description)
-																						 .replace("{{id}}", question.id));
+										               .replace("{{id}}", question.id));
 					
 				} else if (question.type === "hse-2") {
 					$("#social2").append(templateSocial.replace("{{social}}", question.description)
-																						 .replace("{{id}}", question.id));
+											           .replace("{{id}}", question.id));
 				} else if (question.type === "hse-3") {
 					$("#social3").append(templateSocial.replace("{{social}}", question.description)
-																						 .replace("{{id}}", question.id));
+											           .replace("{{id}}", question.id));
 				} else if (question.type === "hse-4") {
 					$("#social4").append(templateSocial.replace("{{social}}", question.description)
-																						 .replace("{{id}}", question.id));
+													   .replace("{{id}}", question.id));
 				}
 				$.each(response.questions[i].Answers, function(i, answer) {
 					$("#" + question.id).append(templateQSocial.replace("{{answer}}", answer.description)
-																								     .replace("{{number}}", i + 1));
+															   .replace("{{number}}", i + 1));
 				});
 			});
 			$(".collapsible").collapsible();
