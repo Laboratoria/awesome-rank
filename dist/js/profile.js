@@ -2,7 +2,9 @@ var mockup = '<div class="row profile" data-id="{{id}}">' +
 				'<div class="col s12 m12 center-align">' +
 					'<img src="{{image}}" class="img-profile circle">' +
 					'<h4 class="name">{{name}} {{lastname}}</h4>' +
-					'<p class="years">{{years}} años - {{country}}</p>' +
+					'<p class="title">{{title}}</p>' +
+					'<p class="squad">{{squad}}</p>' +
+					'<a target="_blank" href={{link}} class="record">RECORD EN CLASE ▷</a>' +
 				'</div>' +
 			 '</div>';
 
@@ -40,11 +42,11 @@ $(document).ready(cargarPagina);
 
 var marcarPuntaje = function(){
 	$(this).siblings().removeClass("seleccionado");
-  $(this).addClass("seleccionado");
-  $(this).prevAll().addClass("seleccionado");
+ 	$(this).addClass("seleccionado");
+	$(this).prevAll().addClass("seleccionado");
 };
 
-var profile = function() {
+var profile = function(){
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
@@ -55,14 +57,15 @@ var profile = function() {
 			$("#students").append(mockup.replace("{{image}}", response.developers[data-1].photoUrl)
 						 			    .replace("{{name}}", response.developers[data-1].name)
 						 			    .replace("{{lastname}}", response.developers[data-1].lastname)
-						 			    .replace("{{years}}", response.developers[data-1].age)
-						 			    .replace("{{country}}", response.developers[data-1].campus)
+						 			    .replace("{{title}}", response.developers[data-1].title)
+						 			    .replace("{{squad}}", response.developers[data-1].squad)
+						 			    .replace("{{link}}", response.developers[data-1].captainLink)
 						 			    .replace("{{id}}", response.developers[data-1].id));
 		}
 	});
 };
 
-var scoreSocial = function() {
+var scoreSocial = function(){
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/questions",
 		type: "GET",
@@ -86,7 +89,7 @@ var scoreSocial = function() {
 	});
 };
 
-var scoreTechnical = function() {
+var scoreTechnical = function(){
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/questions",
 		type: "GET",
@@ -101,7 +104,7 @@ var scoreTechnical = function() {
 	});
 };
 
-var savePoints = function() {
+var savePoints = function(){
 	var ratings = [];
 	var user = JSON.parse(sessionStorage.getItem("user"));
 	var userId = user.id;
