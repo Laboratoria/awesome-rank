@@ -9,72 +9,70 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
-<body>
-  <nav>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="nav-wrapper">
+          <a class="pull-left atras" href="estudiantes.html"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+          <a href="index.html" class="brand-logo center">
+            <img src="img/logolaboratoria.png" alt="Laboratoria" class="logolaboratoria brand-logo center">
+          </a>
+          <a href="#" data-activates="slide-out" class="pull-right button-collapse show-on-large"><i class="material-icons">menu</i></a>
+        </div>
+      </div>
+      <ul id="slide-out" class="side-nav">
+        <li><a href="empezar.html">How To Rate</a></li>
+        <li><a href="ranking2.html">My Ranking</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="waves-effect" href="creditos.html">Credits</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="btn btn-logout" type="button" href="#!">Log Out</a></li>
+      </ul>
+    </nav>
+    <div class="section" id="students"></div>
     <div class="container">
-      <div class="nav-wrapper">
-        <a class="pull-left atras" href="estudiantes.html"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-        <a href="index.html" class="brand-logo center">
-          <img src="img/logolaboratoria.png" alt="Laboratoria" class="logolaboratoria brand-logo center">
-        </a>
-        <a href="#" data-activates="slide-out" class="pull-right button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-    </div>
-    <ul id="slide-out" class="side-nav">
-      <li><a href="empezar.html">How To Rate</a></li>
-      <li><a href="ranking.html">My Ranking</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="waves-effect" href="creditos.html">Credits</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="btn btn-logout" type="button" href="#!">Log Out</a></li>
-    </ul>
-  </nav>
-  <div class="section" id="students"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m12">
-        <ul class="collapsible" data-collapsible="accordion">
-          <li>
-            <div class="collapsible-header bg-header"><i class="small material-icons color-icons">&#xE87D;</i>Soft Skills</div>
-              <div class="collapsible-body">
-                <div id="social1">
-                  <h5>Stress Management</h5>
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="subtitle">
+            <h6>CALIFICA SU RENDIMIENTO</h6>
+          </div>
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header bg-header"><i class="small material-icons color-icons">&#xE87D;</i>Soft Skills</div>
+                <div class="collapsible-body">
+                  <div id="social1">
+                    <p>STRESS MANAGEMENT</p>
+                  </div>
+                  <div id="social2">
+                    <p>COMMUNICATION</p>
+                  </div>
+                  <div id="social3">
+                    <p>RESPONSE TO AUTHORITY</p>
+                  </div>
+                  <div id="social4">
+                    <p>ENGAGEMENT</p>
+                  </div>
                 </div>
-                <div id="social2">
-                  <h5>Communication</h5>
-                </div>
-                <div id="social3">
-                  <h5>Response to authority</h5>
-                </div>
-                <div id="social4">
-                  <h5>Engagement</h5>
-                </div>
+            </li>
+            <li>
+              <div class="collapsible-header bg-header"><i class="small material-icons color-icons">&#xE86F;</i>Technical Skills</div>
+              <div class="collapsible-body" id="technical">
               </div>
-          </li>
-          <li>
-            <div class="collapsible-header bg-header"><i class="small material-icons color-icons">&#xE86F;</i>Technical Skills</div>
-            <div class="collapsible-body" id="technical">
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light darken-text-2 yellow-btn center-align btn-save">
+          <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
-    <div class="fixed-action-btn">
-      <a class="btn-floating btn-large waves-effect waves-light darken-text-2 yellow-btn center-align btn-save">
-        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-
-
-  <script
-      src="//code.jquery.com/jquery-2.2.4.min.js"
-      crossorigin="anonymous"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-  <script src="//use.fontawesome.com/a4f2ba36c5.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-  <script type="text/javascript" src="js/portfolio.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/profile.js"></script>
-</body>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="//use.fontawesome.com/a4f2ba36c5.js"></script>
+    <script type="text/javascript" src="js/portfolio.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/profile.js"></script>
+  </body>
 </html>

@@ -1,6 +1,6 @@
-var templateSocial = 	'<div id="{{id}}">' + 
-												'<h5>{{social}}</h5>'
-											'</div>';
+var templateSocial = '<div id="{{id}}">' + 
+						'<h5>{{social}}</h5>' +
+					'</div>';
 
 var templateQSocial = '<div class="demo">' +
                         '<span class="ratyli check-block" data-ratemax="5">' +

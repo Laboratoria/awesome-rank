@@ -6,8 +6,8 @@ var template= '<div class="card contiene col s12 m12">'+
 				    '</div>'+
 				    '<div class="col s5 m6">'+
 					    '<p class="nomAlum"><span>{{nombre}} {{apellido}}</span></p>'+
-					    '<p class="nomEdad"><span>{{edad}} años</span></p>'+
-					    '<p class="nomSede"><span>{{sede}}</span></p>'+
+					    '<p class="nomEdad"><span>{{title}}</span></p>'+
+					    '<p class="nomSede"><span>{{squad}}</span></p>'+
 					'</div>'+
 					'<div class="col s2 m3">'+
 						'<div class="vermas pointer" data="{{number}}">'+
@@ -33,17 +33,20 @@ var ajaxStudents = function(){
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
 		success: function(response){
-			var templateEstud= "";
-			$.each(response.developers, function(i, estudiante){
-				templateEstud += template
-								.replace("{{nombre}}", estudiante.name)
-								.replace("{{apellido}}", estudiante.lastname)
-								.replace("{{edad}}", estudiante.age)
-								.replace("{{sede}}", estudiante.campus)
-								.replace("{{number}}", i+1)
-	                            .replace("{{imagen}}", estudiante.photoUrl);
-	        });
-			$("#contenedor").html(templateEstud);
+			var templateStudent= "";
+			$.each(response.squads, function(i, squads){
+				$.each(squads.Developers, function(j, developer){
+				templateStudent += template
+	                            .replace("{{imagen}}", developer.photoUrl)
+								.replace("{{nombre}}", developer.name)
+								.replace("{{apellido}}", developer.lastname)
+								.replace("{{title}}", developer.title)
+								.replace("{{squad}}", squads.name)
+								.replace("{{number}}", j+1);
+				});			
+			});
+
+			$("#contenedor").html(templateStudent);
 		}
 	});
   	$('.button-collapse').sideNav({

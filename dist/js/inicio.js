@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('.logo').addClass('logo2');
 	setTimeout( function() {
-	    window.location = "empezar.html";
+	    window.location = "login.html";
 	}, 3500);
 });

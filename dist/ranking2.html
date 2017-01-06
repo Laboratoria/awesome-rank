@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Estudiantes</title>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Ranking2</title>
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-  </head>
-  <body>
-    <nav>
+</head>
+<body>
+	<nav>
       <div class="container">
         <div class="nav-wrapper">
+          <a class="pull-left atras" href="estudiantes.html"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
           <a href="index.html" class="brand-logo center">
             <img src="img/logolaboratoria.png" alt="Laboratoria" class="logolaboratoria brand-logo center">
           </a>
@@ -23,16 +24,50 @@
         <li><div class="divider"></div></li>
         <li><a class="waves-effect" href="creditos.html">Credits</a></li>
         <li><div class="divider"></div></li>
-        <li><a class="btn btn-logout" type="button">Log Out</a></li>
+        <li><a class="btn btn-logout" type="button" href="#!">Log Out</a></li>
       </ul>
     </nav>
     <div class="container">
-      <div class="row" id="contenedor"></div>
+    	<div class="ranking">
+    		<h6>RANKING</h6>
+    	</div>
+    	<div>
+    		<div class="row">
+    			<div class="col s4 m4">
+    				<div class="image-profile">
+		                <img src="img/developers/paola.jpeg">
+		            </div>
+    			</div>
+    			<div class="col s8 m8">
+    				<div class="data">
+	    				<h5>#1</h5>
+	    				<h6>Alejandra Fernandez</h6>
+	    				<p>Frontend Developer</p>
+	    				<p>BCP</p>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col s6 m6">
+    				<div class="rank-point left">
+    					<div class="div-points">3.45</div>
+    					<p>Technical Skills</p>
+    				</div>
+    			</div>
+    			<div class="col s6 m6">
+    				<div class="rank-point right">
+    					<div class="div-points">4.37</div>
+    					<p>Soft Skills</p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+
     </div>
     <script src="//code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
     <script src="//use.fontawesome.com/a4f2ba36c5.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/portfolio.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-  </body>
+</body>
 </html>
