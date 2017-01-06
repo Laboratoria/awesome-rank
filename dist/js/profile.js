@@ -2,8 +2,8 @@ var mockup = '<div class="row profile" data-id="{{id}}">' +
 				'<div class="col s12 m12 center-align">' +
 					'<img src="{{image}}" class="img-profile circle">' +
 					'<h4 class="name">{{name}} {{lastname}}</h4>' +
-					'<p class="title">{{title}}</p>' +
-					'<p class="squad">{{squad}}</p>' +
+					'<p>{{title}}</p>' +
+					'<p>{{squad}}</p>' +
 					'<a target="_blank" href={{link}} class="record">RECORD EN CLASE ▷</a>' +
 				'</div>' +
 			 '</div>';
@@ -11,22 +11,22 @@ var mockup = '<div class="row profile" data-id="{{id}}">' +
 var templateSocial = '<div class="question" id="{{id}}">' +
 			                  '<h6>{{social}}</h6>' +
 			                  '<div class="demo">' +
-			                    '<i class="fa fa-check fa-2x check"></i>' +
-			                    '<i class="fa fa-check fa-2x check"></i>' +
-			                    '<i class="fa fa-check fa-2x check"></i>' +
-			                    '<i class="fa fa-check fa-2x check"></i>' +
-			                    '<i class="fa fa-check fa-2x check"></i>' +
+			                    '<i class="small material-icons">done</i>' +
+			                    '<i class="small material-icons">done</i>' +
+			                    '<i class="small material-icons">done</i>' +
+			                    '<i class="small material-icons">done</i>' +
+			                    '<i class="small material-icons">done</i>' +
 			                  '</div>' +
 			                '</div>';
 
 var templateTechnical = '<div class="question" id="{{id}}">' +
 				                  '<h6>{{technical}}</h6>' +
 				                  '<div class="demo">' +
-				                    '<i class="fa fa-check fa-2x check"></i>' +
-				                    '<i class="fa fa-check fa-2x check"></i>' +
-				                    '<i class="fa fa-check fa-2x check"></i>' +
-				                    '<i class="fa fa-check fa-2x check"></i>' +
-				                    '<i class="fa fa-check fa-2x check"></i>' +
+				                    '<i class="small material-icons">done</i>' +
+				                    '<i class="small material-icons">done</i>' +
+				                    '<i class="small material-icons">done</i>' +
+				                    '<i class="small material-icons">done</i>' +
+				                    '<i class="small material-icons">done</i>' +
 				                  '</div>' +
 				                '</div>';
 
@@ -35,7 +35,7 @@ var cargarPagina = function() {
 	scoreSocial();
 	scoreTechnical();
 	$(".btn-save").click(savePoints);
-	$(document).on("click", ".check", marcarPuntaje);
+	$(document).on("click", ".small", marcarPuntaje);
 };
 
 $(document).ready(cargarPagina);
@@ -51,16 +51,17 @@ var profile = function(){
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
 		success: function(response){
-			var params = location.search;
-			var pos = params.indexOf("=");
-			var data = params.substr(pos + 1);
-			$("#students").append(mockup.replace("{{image}}", response.developers[data-1].photoUrl)
-						 			    .replace("{{name}}", response.developers[data-1].name)
-						 			    .replace("{{lastname}}", response.developers[data-1].lastname)
-						 			    .replace("{{title}}", response.developers[data-1].title)
-						 			    .replace("{{squad}}", response.developers[data-1].squad)
-						 			    .replace("{{link}}", response.developers[data-1].captainLink)
-						 			    .replace("{{id}}", response.developers[data-1].id));
+				var params = location.search;
+				var pos = params.indexOf("=");
+				var data = params.substr(pos + 1);
+			
+				$("#students").append(mockup.replace("{{image}}", response.squads[0].Developers[data-1].photoUrl)
+											.replace("{{name}}", response.squads[0].Developers[data-1].name)
+											.replace("{{lastname}}", response.squads[0].Developers[data-1].lastname)
+											.replace("{{title}}", response.squads[0].Developers[data-1].title)
+											.replace("{{squad}}", response.squads[0].name));
+		
+		
 		}
 	});
 };
@@ -73,16 +74,16 @@ var scoreSocial = function(){
 			$.each(response.questions, function(i, question) {
 				if (question.type === "hse-1") {
 					$("#social1").append(templateSocial.replace("{{social}}", question.description)
-																			       .replace("{{id}}", question.id));
+														.replace("{{id}}", question.id));
 				} else if (question.type === "hse-2") {
 					$("#social2").append(templateSocial.replace("{{social}}", question.description)
-																			       .replace("{{id}}", question.id));
+														.replace("{{id}}", question.id));
 				} else if (question.type === "hse-3") {
 					$("#social3").append(templateSocial.replace("{{social}}", question.description)
-																			       .replace("{{id}}", question.id));
+														.replace("{{id}}", question.id));
 				} else if (question.type === "hse-4") {
 					$("#social4").append(templateSocial.replace("{{social}}", question.description)
-																			       .replace("{{id}}", question.id));
+														.replace("{{id}}", question.id));
 				}
 			});
 		}
@@ -97,7 +98,7 @@ var scoreTechnical = function(){
 			$.each(response.questions, function(i, question) {
 				if (question.type === "tech") {
 					$("#technical").append(templateTechnical.replace("{{technical}}", question.description)
-																							    .replace("{{id}}", question.id));
+															.replace("{{id}}", question.id));
 				}
 			});
 		}
