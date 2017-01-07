@@ -58,7 +58,8 @@ var profile = function(){
 											.replace("{{name}}", response.squads[0].Developers[data-1].name)
 											.replace("{{lastname}}", response.squads[0].Developers[data-1].lastname)
 											.replace("{{title}}", response.squads[0].Developers[data-1].title)
-											.replace("{{squad}}", response.squads[0].name));
+											.replace("{{squad}}", response.squads[0].name)
+											.replace("{{id}}", response.squads[0].Developers[data-1].id);
 		}
 	});
 };
@@ -106,6 +107,7 @@ var savePoints = function() {
 	$(this).attr("disabled", true);
 	var ratings = [];
 	var user = JSON.parse(sessionStorage.getItem("user"));
+	console.log(user);
 	var userId = user.id;
 	var developerId = parseInt($(".profile").attr("data-id"));
 	$(".demo").each(function (i, question) {
