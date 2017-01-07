@@ -54,14 +54,11 @@ var profile = function(){
 				var params = location.search;
 				var pos = params.indexOf("=");
 				var data = params.substr(pos + 1);
-			
 				$("#students").append(mockup.replace("{{image}}", response.squads[0].Developers[data-1].photoUrl)
 											.replace("{{name}}", response.squads[0].Developers[data-1].name)
 											.replace("{{lastname}}", response.squads[0].Developers[data-1].lastname)
 											.replace("{{title}}", response.squads[0].Developers[data-1].title)
 											.replace("{{squad}}", response.squads[0].name));
-		
-		
 		}
 	});
 };
@@ -105,7 +102,8 @@ var scoreTechnical = function(){
 	});
 };
 
-var savePoints = function(){
+var savePoints = function() {
+	$(this).attr("disabled", true);
 	var ratings = [];
 	var user = JSON.parse(sessionStorage.getItem("user"));
 	var userId = user.id;
@@ -125,6 +123,17 @@ var savePoints = function(){
 		ratings: JSON.stringify(ratings)
 	}, function(response) {
 		console.log(response);
-		window.location.href = "/estudiantes.html";
+		swal({
+			title: "Awesome Rank",
+			text: "Your score has been saved successfully.",
+			type: "success",
+			confirmButtonColor: "#F9A91A",
+			confirmButtonText: "OK",
+			closeOnConfirm: false,
+			closeOnCancel: false
+		}, function () {
+			window.location.href = "/estudiantes.html";
+		});
+		$(".btn-save").removeAttr("disabled");
 	});
 };
