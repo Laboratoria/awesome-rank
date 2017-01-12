@@ -52,16 +52,42 @@ var profile = function(){
 		type: "GET",
 		success: function(response){
 				var params = location.search;
-				var pos = params.indexOf("=");
-				var data = params.substr(pos + 1);
-				$("#students").append(mockup.replace("{{image}}", response.squads[0].Developers[data-1].photoUrl)
-											.replace("{{name}}", response.squads[0].Developers[data-1].name)
-											.replace("{{lastname}}", response.squads[0].Developers[data-1].lastname)
-											.replace("{{title}}", response.squads[0].Developers[data-1].title)
-											.replace("{{squad}}", response.squads[0].name)
-											.replace("{{id}}", response.squads[0].Developers[data-1].id);
+
+				var posDevXo = params.indexOf("=");
+				var posDevXf = params.indexOf("&");
+				var devId = params.substring(posDevXo +1 , posDevXf);
+				console.log(devId);
+
+				var stringSquad = params.substr(posDevXf + 1);
+				var posSquadXo = stringSquad.indexOf("=");
+				var squadId = stringSquad.substring(posSquadXo + 1);
+				console.log(squadId);
+
+				console.log(response);
+
+				$.each(response.squads, function(i, squad){
+
+					if(squad.id == squadId) {
+
+						$.each(squad.Developers, function(j, developer){
+
+							if(developer.id == devId) {
+
+								$("#students").append(mockup
+					                            .replace("{{image}}", developer.photoUrl)
+												.replace("{{name}}", developer.name)
+												.replace("{{lastname}}", developer.lastname)
+												.replace("{{title}}", developer.title)
+												.replace("{{squad}}", squad.name)
+												.replace("{{idSquad}}", squad.id)
+												.replace("{{idStudent}}", developer.id));			
+							}
+						});				
+					}
+				});
 		}
 	});
+
 };
 
 var scoreSocial = function(){

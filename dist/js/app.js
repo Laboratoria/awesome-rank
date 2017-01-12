@@ -1,4 +1,4 @@
-var template= '<div class="card contiene col s12 m12">'+
+var template= '<div class="card contiene col s12 m12" data-squad-id={{idSquad}}>'+
 					'<div class="col s5 m3">'+
 					   	'<div class="image">'+
 					   		'<img src="{{imagen}}">'+
@@ -10,7 +10,7 @@ var template= '<div class="card contiene col s12 m12">'+
 					    '<p class="nomSede"><span>{{squad}}</span></p>'+
 					'</div>'+
 					'<div class="col s2 m3">'+
-						'<div class="vermas pointer" data="{{number}}">'+
+						'<div class="vermas pointer" data-developer-id="{{idStudent}}">'+
 					    	'<a id="enlace"><i class="fa fa-plus-circle fa-3x ic-color" aria-hidden="true"></i></a>'+
 						'</div>'+
 					'</div>'+
@@ -24,8 +24,9 @@ var plantillaCreditos = '<div class="card-credit center-align">'+
         				'</div>';
 
 var guardarDirigir= function(){
-	var self = $(this).attr("data");
-	window.location.href= "perfil.html" + "?data=" + self;
+	var self = $(this).attr("data-developer-id");
+	var idSq = $(this).parents().eq(1).attr("data-squad-id");
+	window.location.href= "perfil.html" + "?developer=" + self + "&squad=" + idSq;
 };
 
 var ajaxStudents = function(){
@@ -42,7 +43,8 @@ var ajaxStudents = function(){
 								.replace("{{apellido}}", developer.lastname)
 								.replace("{{title}}", developer.title)
 								.replace("{{squad}}", squads.name)
-								.replace("{{number}}", j+1);
+								.replace("{{idSquad}}", squads.id)
+								.replace("{{idStudent}}", developer.id);
 				});			
 			});
 
