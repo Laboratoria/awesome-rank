@@ -26,7 +26,7 @@ var templateQTechnical = '<div class="question">' +
 	                        '</div>';
 
 var loadPage = function() {
-	// carousel material
+// carousel material
   $('.carousel.carousel-slider').carousel({full_width: true});
   $('.collapsible').collapsible();
   $(".btn-skip").click(userValidation);
@@ -76,10 +76,10 @@ var technical = function() {
 			$.each(response.questions, function(i, question) {
 				if (question.type === "tech") {
 					$("#technical").append(templateTechnical.replace("{{question}}", question.description)
-																							    .replace("{{id}}", question.id));
+															.replace("{{id}}", question.id));
 					$.each(response.questions[i].Answers, function(i, answer) {
 						$("#" + question.id).append(templateQTechnical.replace("{{answer}}", answer.description)
-																								          .replace("{{number}}", i + 1));
+																	.replace("{{number}}", i + 1));
 					});
 				}
 			});
@@ -91,7 +91,7 @@ var technical = function() {
 var userValidation = function () {
 	var status = Boolean(sessionStorage.getItem("status"));
 	if (status) {
-		window.location.href = "/estudiantes.html";
+		window.location.href = "/students.html";
 	} else {
 		window.location.href = "/login.html";
 	}

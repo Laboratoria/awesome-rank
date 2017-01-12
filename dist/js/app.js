@@ -1,5 +1,5 @@
 var template=	'<div class="card contiene col s12 m12" data-squad-id={{idSquad}}>'+
-					'<div class="col s4 m3">'+
+					'<div class="col s4 m4">'+
 			   			'<div class="image">'+
 			   				'<img src="{{image}}" alt="Imagen-Alumna">'+
 		       			'</div>'+
@@ -8,10 +8,10 @@ var template=	'<div class="card contiene col s12 m12" data-squad-id={{idSquad}}>
 			    		'<p class="nomAlum"><span>{{nombre}} {{apellido}}</span></p>'+
 			    		'<p class="nomEdad"><span>{{title}}</span></p>'+
 			    		'<p class="nomSede"><span>{{squad}}</span></p>'+
-						'</div>'+
-						'<div class="col s2 m3">'+
-							'<div class="vermas pointer" data-developer-id="{{idStudent}}">'+
-			    			'<a id="enlace"><i class="fa fa-plus-circle fa-3x ic-color" aria-hidden="true"></i></a>'+
+					'</div>'+
+					'<div class="col s2 m2">'+
+						'<div class="vermas pointer" data-developer-id="{{idStudent}}">'+
+		    				'<a id="enlace"><i class="fa fa-plus-circle fa-3x ic-color" aria-hidden="true"></i></a>'+
 						'</div>'+
 					'</div>'+
 	   			'</div>';
@@ -26,7 +26,7 @@ var plantillaCreditos = '<div class="card-credit center-align">'+
 var guardarDirigir= function(){
 	var self = $(this).attr("data-developer-id");
 	var idSq = $(this).parents().eq(1).attr("data-squad-id");
-	window.location.href= "perfil.html" + "?developer=" + self + "&squad=" + idSq;
+	window.location.href= "profile.html" + "?developer=" + self + "&squad=" + idSq;
 };
 
 var ajaxStudents = function(){

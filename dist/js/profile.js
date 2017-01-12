@@ -1,12 +1,12 @@
 var mockup =	'<div class="row profile" data-id="{{id}}">' +
-								'<div class="col s12 m12 center-align">' +
-									'<img src="{{image}}" class="img-profile circle">' +
-									'<h5 class="name">{{name}} {{lastname}}</h5>' +
-									'<p>{{title}}</p>' +
-									'<p>{{squad}}</p>' +
-									'<a target="_blank" href={{link}} class="record">RECORD EN CLASE ▷</a>' +
-								'</div>' +
-			 				'</div>';
+					'<div class="col s12 m12 center-align">' +
+						'<img src="{{image}}" class="img-profile circle">' +
+						'<h5 class="name">{{name}} {{lastname}}</h5>' +
+						'<p>{{title}}</p>' +
+						'<p>{{squad}}</p>' +
+						'<a target="_blank" href={{link}} class="record">RECORD EN CLASE ▷</a>' +
+					'</div>' +
+ 				'</div>';
 
 var templateSocial =	'<div class="question" id="{{id}}">' +
 	                  		'<h6>{{social}}</h6>' +
@@ -17,18 +17,18 @@ var templateSocial =	'<div class="question" id="{{id}}">' +
 		                    	'<i class="small material-icons">done</i>' +
 		                    	'<i class="small material-icons">done</i>' +
 	                  		'</div>' +
-	                		'</div>';
+	                	'</div>';
 
 var templateTechnical =	'<div class="question" id="{{id}}">' +
-		                  		'<h6>{{technical}}</h6>' +
-		                  		'<div class="demo">' +
-			                    	'<i class="small material-icons">done</i>' +
-			                    	'<i class="small material-icons">done</i>' +
-			                    	'<i class="small material-icons">done</i>' +
-			                    	'<i class="small material-icons">done</i>' +
-			                    	'<i class="small material-icons">done</i>' +
-		                  		'</div>' +
-		                		'</div>';
+	                  		'<h6>{{technical}}</h6>' +
+	                  		'<div class="demo">' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+	                  		'</div>' +
+		                '</div>';
 
 var loadPag = function() {
 	profile();
