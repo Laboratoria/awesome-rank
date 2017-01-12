@@ -6,9 +6,7 @@ var loadPage = function() {
 	$("#go").click(validate);
 };
 
-
 $(document).ready(loadPage);
-
 
 var showMessage = function(){
 	swal({
@@ -33,7 +31,7 @@ var validate = function() {
 			sessionStorage.setItem("status", datos.success ? 1 : 0);
 			sessionStorage.setItem("user", JSON.stringify(datos.user));
 			if(datos.success === true) {
-				window.location.href = "estudiantes.html";
+				window.location.href = "students.html";
 			} else {
 				showMessage();
 			}

@@ -1,36 +1,36 @@
-var mockup = '<div class="row profile" data-id="{{id}}">' +
-				'<div class="col s12 m12 center-align">' +
-					'<img src="{{image}}" class="img-profile circle">' +
-					'<h4 class="name">{{name}} {{lastname}}</h4>' +
-					'<p>{{title}}</p>' +
-					'<p>{{squad}}</p>' +
-					'<a target="_blank" href={{link}} class="record">RECORD EN CLASE ▷</a>' +
-				'</div>' +
-			 '</div>';
+var mockup =	'<div class="row profile" data-id="{{id}}">' +
+					'<div class="col s12 m12 center-align">' +
+						'<img src="{{image}}" class="img-profile circle">' +
+						'<h5 class="name">{{name}} {{lastname}}</h5>' +
+						'<p>{{title}}</p>' +
+						'<p>{{squad}}</p>' +
+						'<a target="_blank" href={{link}} class="record">RECORD EN CLASE ▷</a>' +
+					'</div>' +
+ 				'</div>';
 
-var templateSocial = '<div class="question" id="{{id}}">' +
-	                  	'<h6>{{social}}</h6>' +
-	                  	'<div class="demo">' +
-	                    	'<i class="small material-icons">done</i>' +
-	                    	'<i class="small material-icons">done</i>' +
-	                    	'<i class="small material-icons">done</i>' +
-	                    	'<i class="small material-icons">done</i>' +
-	                    	'<i class="small material-icons">done</i>' +
-	                  	'</div>' +
-	                '</div>';
+var templateSocial =	'<div class="question" id="{{id}}">' +
+	                  		'<h6>{{social}}</h6>' +
+	                  		'<div class="demo">' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+	                  		'</div>' +
+	                	'</div>';
 
-var templateTechnical = '<div class="question" id="{{id}}">' +
-		                  	'<h6>{{technical}}</h6>' +
-		                  	'<div class="demo">' +
+var templateTechnical =	'<div class="question" id="{{id}}">' +
+	                  		'<h6>{{technical}}</h6>' +
+	                  		'<div class="demo">' +
 		                    	'<i class="small material-icons">done</i>' +
 		                    	'<i class="small material-icons">done</i>' +
 		                    	'<i class="small material-icons">done</i>' +
 		                    	'<i class="small material-icons">done</i>' +
 		                    	'<i class="small material-icons">done</i>' +
-		                  	'</div>' +
+	                  		'</div>' +
 		                '</div>';
 
-var cargarPagina = function() {
+var loadPag = function() {
 	profile();
 	scoreSocial();
 	scoreTechnical();
@@ -38,7 +38,7 @@ var cargarPagina = function() {
 	$(document).on("click", ".small", marcarPuntaje);
 };
 
-$(document).ready(cargarPagina);
+$(document).ready(loadPag);
 
 var marcarPuntaje = function(){
 	$(this).siblings().removeClass("seleccionado");
@@ -56,39 +56,32 @@ var profile = function(){
 			var posDevXo = params.indexOf("=");
 			var posDevXf = params.indexOf("&");
 			var devId = params.substring(posDevXo +1 , posDevXf);
-			console.log(devId);
 
 			var stringSquad = params.substr(posDevXf + 1);
 			var posSquadXo = stringSquad.indexOf("=");
 			var squadId = stringSquad.substring(posSquadXo + 1);
-			console.log(squadId);
-
-			console.log(response);
 
 			$.each(response.squads, function(i, squad){
-
 				if(squad.id == squadId) {
-
 					$.each(squad.Developers, function(j, developer){
-
 						if(developer.id == devId) {
-
-							$("#students").append(mockup
-				                            .replace("{{image}}", developer.photoUrl)
-											.replace("{{name}}", developer.name)
-											.replace("{{lastname}}", developer.lastname)
-											.replace("{{title}}", developer.title)
-											.replace("{{squad}}", squad.name)
-											.replace("{{link}}", developer.captainLink)
-											.replace("{{idSquad}}", squad.id)
-											.replace("{{idStudent}}", developer.id));			
+							if(developer.photoUrl == null){
+								developer.photoUrl = "../img/developers/usercoder.png"
+							}
+							$("#students").append(mockup.replace("{{image}}", developer.photoUrl)
+														.replace("{{name}}", developer.name)
+														.replace("{{lastname}}", developer.lastname)
+														.replace("{{title}}", developer.title)
+														.replace("{{squad}}", squad.name)
+														.replace("{{link}}", developer.captainLink)
+														.replace("{{idSquad}}", squad.id)
+														.replace("{{idStudent}}", developer.id));			
 						}
 					});				
 				}
 			});
 		}
 	});
-
 };
 
 var scoreSocial = function(){
@@ -160,7 +153,7 @@ var savePoints = function() {
 			confirmButtonText: "OK",
 			closeOnConfirm: false,
 			closeOnCancel: false
-		}, function () {
+		},function () {
 			window.location.href = "/estudiantes.html";
 		});
 		$(".btn-save").removeAttr("disabled");
