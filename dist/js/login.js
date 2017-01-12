@@ -6,9 +6,7 @@ var loadPage = function() {
 	$("#go").click(validate);
 };
 
-
 $(document).ready(loadPage);
-
 
 var showMessage = function(){
 	swal({
