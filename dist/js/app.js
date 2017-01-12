@@ -1,10 +1,10 @@
 var template= '<div class="card contiene col s12 m12" data-squad-id={{idSquad}}>'+
-					'<div class="col s5 m3">'+
+					'<div class="col s4 m3">'+
 					   	'<div class="image">'+
-					   		'<img src="{{imagen}}">'+
+					   		'<img src="{{imagen}}" alt="Imagen-Alumna">'+
 				       	'</div>'+
 				    '</div>'+
-				    '<div class="col s5 m6">'+
+				    '<div class="col s6 m6">'+
 					    '<p class="nomAlum"><span>{{nombre}} {{apellido}}</span></p>'+
 					    '<p class="nomEdad"><span>{{title}}</span></p>'+
 					    '<p class="nomSede"><span>{{squad}}</span></p>'+
@@ -37,14 +37,17 @@ var ajaxStudents = function(){
 			var templateStudent= "";
 			$.each(response.squads, function(i, squads){
 				$.each(squads.Developers, function(j, developer){
-				templateStudent += template
-	                            .replace("{{imagen}}", developer.photoUrl)
-								.replace("{{nombre}}", developer.name)
-								.replace("{{apellido}}", developer.lastname)
-								.replace("{{title}}", developer.title)
-								.replace("{{squad}}", squads.name)
-								.replace("{{idSquad}}", squads.id)
-								.replace("{{idStudent}}", developer.id);
+					if(developer.photoUrl == null){
+						developer.photoUrl = "../img/developers/usercoder.png"
+					}
+					templateStudent += template
+		                            .replace("{{imagen}}", developer.photoUrl)
+									.replace("{{nombre}}", developer.name)
+									.replace("{{apellido}}", developer.lastname)
+									.replace("{{title}}", developer.title)
+									.replace("{{squad}}", squads.name)
+									.replace("{{idSquad}}", squads.id)
+									.replace("{{idStudent}}", developer.id);
 				});			
 			});
 

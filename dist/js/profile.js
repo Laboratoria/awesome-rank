@@ -9,26 +9,26 @@ var mockup = '<div class="row profile" data-id="{{id}}">' +
 			 '</div>';
 
 var templateSocial = '<div class="question" id="{{id}}">' +
-			                  '<h6>{{social}}</h6>' +
-			                  '<div class="demo">' +
-			                    '<i class="small material-icons">done</i>' +
-			                    '<i class="small material-icons">done</i>' +
-			                    '<i class="small material-icons">done</i>' +
-			                    '<i class="small material-icons">done</i>' +
-			                    '<i class="small material-icons">done</i>' +
-			                  '</div>' +
-			                '</div>';
+	                  	'<h6>{{social}}</h6>' +
+	                  	'<div class="demo">' +
+	                    	'<i class="small material-icons">done</i>' +
+	                    	'<i class="small material-icons">done</i>' +
+	                    	'<i class="small material-icons">done</i>' +
+	                    	'<i class="small material-icons">done</i>' +
+	                    	'<i class="small material-icons">done</i>' +
+	                  	'</div>' +
+	                '</div>';
 
 var templateTechnical = '<div class="question" id="{{id}}">' +
-				                  '<h6>{{technical}}</h6>' +
-				                  '<div class="demo">' +
-				                    '<i class="small material-icons">done</i>' +
-				                    '<i class="small material-icons">done</i>' +
-				                    '<i class="small material-icons">done</i>' +
-				                    '<i class="small material-icons">done</i>' +
-				                    '<i class="small material-icons">done</i>' +
-				                  '</div>' +
-				                '</div>';
+		                  	'<h6>{{technical}}</h6>' +
+		                  	'<div class="demo">' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="small material-icons">done</i>' +
+		                  	'</div>' +
+		                '</div>';
 
 var cargarPagina = function() {
 	profile();
@@ -51,40 +51,41 @@ var profile = function(){
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
 		success: function(response){
-				var params = location.search;
+			var params = location.search;
 
-				var posDevXo = params.indexOf("=");
-				var posDevXf = params.indexOf("&");
-				var devId = params.substring(posDevXo +1 , posDevXf);
-				console.log(devId);
+			var posDevXo = params.indexOf("=");
+			var posDevXf = params.indexOf("&");
+			var devId = params.substring(posDevXo +1 , posDevXf);
+			console.log(devId);
 
-				var stringSquad = params.substr(posDevXf + 1);
-				var posSquadXo = stringSquad.indexOf("=");
-				var squadId = stringSquad.substring(posSquadXo + 1);
-				console.log(squadId);
+			var stringSquad = params.substr(posDevXf + 1);
+			var posSquadXo = stringSquad.indexOf("=");
+			var squadId = stringSquad.substring(posSquadXo + 1);
+			console.log(squadId);
 
-				console.log(response);
+			console.log(response);
 
-				$.each(response.squads, function(i, squad){
+			$.each(response.squads, function(i, squad){
 
-					if(squad.id == squadId) {
+				if(squad.id == squadId) {
 
-						$.each(squad.Developers, function(j, developer){
+					$.each(squad.Developers, function(j, developer){
 
-							if(developer.id == devId) {
+						if(developer.id == devId) {
 
-								$("#students").append(mockup
-					                            .replace("{{image}}", developer.photoUrl)
-												.replace("{{name}}", developer.name)
-												.replace("{{lastname}}", developer.lastname)
-												.replace("{{title}}", developer.title)
-												.replace("{{squad}}", squad.name)
-												.replace("{{idSquad}}", squad.id)
-												.replace("{{idStudent}}", developer.id));			
-							}
-						});				
-					}
-				});
+							$("#students").append(mockup
+				                            .replace("{{image}}", developer.photoUrl)
+											.replace("{{name}}", developer.name)
+											.replace("{{lastname}}", developer.lastname)
+											.replace("{{title}}", developer.title)
+											.replace("{{squad}}", squad.name)
+											.replace("{{link}}", developer.captainLink)
+											.replace("{{idSquad}}", squad.id)
+											.replace("{{idStudent}}", developer.id));			
+						}
+					});				
+				}
+			});
 		}
 	});
 
