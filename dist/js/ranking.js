@@ -36,16 +36,16 @@ var loadPage = function() {
 		type: "GET",
 		success: function(response){
 			var developer;
-			for (var i = 0, len = response.ranking.length; i < len; i += 2) {
-				developer = response.ranking[i];
+			for (var i = 0, len = response.ranking[0].length; i < len; i ++) {
+				developer = response.ranking[0][i];
 				$("#results").append(template.replace(/{{name}}/g, developer.name)
-											 	.replace("{{position}}", developer.position)
+											 	.replace("{{position}}", i+1)
 					                        	.replace(/{{lastname}}/g, developer.lastname)
 					                        	.replace("{{image}}", developer.photoUrl)
 					                        	.replace("{{title}}", developer.title)
 					                        	.replace("{{squad}}", developer.squad)
-					                        	.replace("{{average-tech}}", Number(response.ranking[i].average.toFixed(2)))
-					                        	.replace("{{average-hse}}", Number(response.ranking[i + 1].average).toFixed(2)));
+					                        	.replace("{{average-tech}}", Number(developer.avgtech.toFixed(2)))
+					                        	.replace("{{average-hse}}", Number(developer.avghse).toFixed(2)));
 			}
 		}
 	});
