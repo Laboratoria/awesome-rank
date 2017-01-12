@@ -1,6 +1,6 @@
-var templateSocial = 	'<div id="{{id}}">' + 
-												'<h5>{{social}}</h5>'
-											'</div>';
+var templateSocial = '<div id="{{id}}">' + 
+						'<h5>{{social}}</h5>' +
+					'</div>';
 
 var templateQSocial = '<div class="demo">' +
                         '<span class="ratyli check-block" data-ratemax="5">' +
@@ -27,9 +27,10 @@ var templateQTechnical = '<div class="question">' +
 
 var loadPage = function() {
 	// carousel material
-	$('.carousel.carousel-slider').carousel({full_width: true});
+  $('.carousel.carousel-slider').carousel({full_width: true});
   $('.collapsible').collapsible();
-  $(".btn-skip").click(skip);
+  $(".btn-skip").click(userValidation);
+  $(".btn-start").click(userValidation);
   social();
   technical();
 };
@@ -45,21 +46,21 @@ var social = function() {
 			$.each(response.questions, function(i, question) {
 				if (question.type === "hse-1") {
 					$("#social1").append(templateSocial.replace("{{social}}", question.description)
-																						 .replace("{{id}}", question.id));
+										               .replace("{{id}}", question.id));
 					
 				} else if (question.type === "hse-2") {
 					$("#social2").append(templateSocial.replace("{{social}}", question.description)
-																						 .replace("{{id}}", question.id));
+											           .replace("{{id}}", question.id));
 				} else if (question.type === "hse-3") {
 					$("#social3").append(templateSocial.replace("{{social}}", question.description)
-																						 .replace("{{id}}", question.id));
+											           .replace("{{id}}", question.id));
 				} else if (question.type === "hse-4") {
 					$("#social4").append(templateSocial.replace("{{social}}", question.description)
-																						 .replace("{{id}}", question.id));
+													   .replace("{{id}}", question.id));
 				}
 				$.each(response.questions[i].Answers, function(i, answer) {
 					$("#" + question.id).append(templateQSocial.replace("{{answer}}", answer.description)
-																								     .replace("{{number}}", i + 1));
+															   .replace("{{number}}", i + 1));
 				});
 			});
 			$(".collapsible").collapsible();
@@ -87,7 +88,7 @@ var technical = function() {
 	});
 };
 
-var skip = function () {
+var userValidation = function () {
 	var status = Boolean(sessionStorage.getItem("status"));
 	if (status) {
 		window.location.href = "/estudiantes.html";

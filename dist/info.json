@@ -2,7 +2,7 @@
     {
         "nombre": "Daniela Mora",
         "edad": "26 años",
-        "foto": "img/girls/dana.jpg",
+        "foto": "img/developers/dana.jpg",
         "nacionalidad": "Chilena",
         "sede": "Chile",
         "github": "https://github.com/Danamorah",
@@ -11,7 +11,7 @@
     {
         "nombre": "Karen Orozco",
         "edad": "27 años",
-        "foto": "img/girls/karen.jpg",
+        "foto": "img/developers/karen.jpg",
         "nacionalidad": "Mexicana",
         "sede": "México",
         "github": "https://github.com/kareneos",
@@ -20,7 +20,7 @@
     {
         "nombre": "Diana Navarro",
         "edad": "19 años",
-        "foto": "img/girls/diana.jpg",
+        "foto": "img/developers/diana.jpg",
         "nacionalidad": "Peruana",
         "sede": "Perú",
         "github": "https://github.com/diananr",
@@ -29,7 +29,7 @@
     {
         "nombre": "Paola Ortiz de Zevallos",
         "edad": "25 años",
-        "foto": "img/girls/paola.jpeg",
+        "foto": "img/developers/paola.jpeg",
         "nacionalidad": "Peruana",
         "sede": "Perú",
         "github": "https://github.com/paolaozv",
@@ -38,7 +38,7 @@
     {
         "nombre": "Maryori Quiroz",
         "edad": "19 años",
-        "foto": "img/girls/maryori.jpg",
+        "foto": "img/developers/maryori.jpg",
         "nacionalidad": "Peruana",
         "sede": "Perú",
         "github": "https://github.com/AmySeo12",
@@ -47,7 +47,7 @@
     {
         "nombre": "Susana Opazo",
         "edad": "25 años",
-        "foto": "img/girls/su.jpg",
+        "foto": "img/developers/su.jpg",
         "nacionalidad": "Chilena",
         "sede": "Chile",
         "github": "http://github.com/opazisimo",
@@ -56,7 +56,7 @@
     {
         "nombre": "Alexandra Neira",
         "edad": "30 años",
-        "foto": "img/girls/alexandra.jpeg",
+        "foto": "img/developers/alexandra.jpeg",
         "nacionalidad": "Chilena",
         "sede": "Chile",
         "github": "https://github.com/nerdale",
@@ -65,7 +65,7 @@
     {
         "nombre": "Elisa Martinez",
         "edad": "25 años",
-        "foto": "img/girls/elisa.jpg",
+        "foto": "img/developers/elisa.jpg",
         "nacionalidad": "Mexicana",
         "sede": "México",
         "github": "https://github.com/ElisaME",
@@ -74,7 +74,7 @@
     {
         "nombre": "Maciel Porraz",
         "edad": "27 años",
-        "foto": "img/girls/maciel.jpg",
+        "foto": "img/developers/maciel.jpg",
         "nacionalidad": "Mexicana",
         "sede": "México",
         "github":"https://github.com/mcpoe",
@@ -83,7 +83,7 @@
     {
         "nombre": "Iván Medina",
         "edad": "22 años",
-        "foto": "img/girls/ivan.jpg",
+        "foto": "img/developers/ivan.jpg",
         "nacionalidad": "Peruano",
         "sede": "Perú",
         "github": "https://github.com/ivandevp",

@@ -1,16 +1,16 @@
-var template= '<div class="card contiene col s12 m12">'+
-					'<div class="col s5 m3">'+
+var template= '<div class="card contiene col s12 m12" data-squad-id={{idSquad}}>'+
+					'<div class="col s4 m3">'+
 					   	'<div class="image">'+
-					   		'<img src="{{imagen}}">'+
+					   		'<img src="{{imagen}}" alt="Imagen-Alumna">'+
 				       	'</div>'+
 				    '</div>'+
-				    '<div class="col s5 m6">'+
+				    '<div class="col s6 m6">'+
 					    '<p class="nomAlum"><span>{{nombre}} {{apellido}}</span></p>'+
-					    '<p class="nomEdad"><span>{{edad}} años</span></p>'+
-					    '<p class="nomSede"><span>{{sede}}</span></p>'+
+					    '<p class="nomEdad"><span>{{title}}</span></p>'+
+					    '<p class="nomSede"><span>{{squad}}</span></p>'+
 					'</div>'+
 					'<div class="col s2 m3">'+
-						'<div class="vermas pointer" data="{{number}}">'+
+						'<div class="vermas pointer" data-developer-id="{{idStudent}}">'+
 					    	'<a id="enlace"><i class="fa fa-plus-circle fa-3x ic-color" aria-hidden="true"></i></a>'+
 						'</div>'+
 					'</div>'+
@@ -19,13 +19,14 @@ var template= '<div class="card contiene col s12 m12">'+
 var plantillaCreditos = '<div class="card-credit center-align">'+
 							'<img src="**imagen**" class="circle credit-image">'+
           					'<p class="margin-0">**name**</p>'+
-      						'<a href="**github**"><i class="fa fa-github credit-icon fa-lg" aria-hidden="true"></i></a>'+
-         	 				'<a href="**linkedin**"><i class="fa fa-linkedin credit-icon fa-lg" aria-hidden="true"></i></a>'+
+      						'<a href="**github**"><i class="fa fa-github credit-icon fa-lg" aria-hidden="true" target="_blank"></i></a>'+
+         	 				'<a href="**linkedin**"><i class="fa fa-linkedin credit-icon fa-lg" aria-hidden="true" target="_blank"></i></a>'+
         				'</div>';
 
 var guardarDirigir= function(){
-	var self = $(this).attr("data");
-	window.location.href= "perfil.html" + "?data=" + self;
+	var self = $(this).attr("data-developer-id");
+	var idSq = $(this).parents().eq(1).attr("data-squad-id");
+	window.location.href= "perfil.html" + "?developer=" + self + "&squad=" + idSq;
 };
 
 var ajaxStudents = function(){
@@ -33,17 +34,24 @@ var ajaxStudents = function(){
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
 		success: function(response){
-			var templateEstud= "";
-			$.each(response.developers, function(i, estudiante){
-				templateEstud += template
-								.replace("{{nombre}}", estudiante.name)
-								.replace("{{apellido}}", estudiante.lastname)
-								.replace("{{edad}}", estudiante.age)
-								.replace("{{sede}}", estudiante.campus)
-								.replace("{{number}}", i+1)
-	                            .replace("{{imagen}}", estudiante.photoUrl);
-	        });
-			$("#contenedor").html(templateEstud);
+			var templateStudent= "";
+			$.each(response.squads, function(i, squads){
+				$.each(squads.Developers, function(j, developer){
+					if(developer.photoUrl == null){
+						developer.photoUrl = "../img/developers/usercoder.png"
+					}
+					templateStudent += template
+		                            .replace("{{imagen}}", developer.photoUrl)
+									.replace("{{nombre}}", developer.name)
+									.replace("{{apellido}}", developer.lastname)
+									.replace("{{title}}", developer.title)
+									.replace("{{squad}}", squads.name)
+									.replace("{{idSquad}}", squads.id)
+									.replace("{{idStudent}}", developer.id);
+				});			
+			});
+
+			$("#contenedor").html(templateStudent);
 		}
 	});
   	$('.button-collapse').sideNav({
