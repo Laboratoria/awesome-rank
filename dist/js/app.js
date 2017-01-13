@@ -31,7 +31,6 @@ var guardarDirigir= function(){
 
 var ajaxStudents = function(){
 	var user = JSON.parse(sessionStorage.getItem('user'));
-	console.log(user);
 	var filter = {
 		campusId: user.CampusId
 	};

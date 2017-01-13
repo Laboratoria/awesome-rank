@@ -47,9 +47,14 @@ var marcarPuntaje = function(){
 };
 
 var profile = function(){
+	var user = JSON.parse(sessionStorage.getItem('user'));
+	var filter = {
+		campusId: user.CampusId
+	};
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
+		data: filter,
 		success: function(response){
 			var params = location.search;
 
