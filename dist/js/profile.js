@@ -79,8 +79,7 @@ var profile = function(){
 														.replace("{{title}}", developer.title)
 														.replace("{{squad}}", squad.name)
 														.replace("{{link}}", developer.captainLink)
-														.replace("{{idSquad}}", squad.id)
-														.replace("{{idStudent}}", developer.id));			
+														.replace("{{id}}", developer.id));			
 						}
 					});				
 				}
@@ -159,7 +158,7 @@ var savePoints = function() {
 			closeOnConfirm: false,
 			closeOnCancel: false
 		},function () {
-			window.location.href = "/estudiantes.html";
+			window.location.href = "/students.html";
 		});
 		$(".btn-save").removeAttr("disabled");
 	});

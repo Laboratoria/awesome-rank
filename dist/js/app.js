@@ -1,16 +1,16 @@
-var template=	'<div class="card contiene col s12 m12" data-squad-id={{idSquad}}>'+
+var template=	'<div class="card contiene col s12 m12" data-squad-id={{squadId}}>'+
 					'<div class="col s4 m4">'+
 			   			'<div class="image">'+
-			   				'<img src="{{image}}" alt="Imagen-Alumna">'+
+			   				'<img src="{{image}}" alt="{{name}} {{lastname}}">'+
 		       			'</div>'+
 		    		'</div>'+
 		    		'<div class="col s6 m6">'+
-			    		'<p class="nomAlum"><span>{{nombre}} {{apellido}}</span></p>'+
+			    		'<p class="nomAlum"><span>{{name}} {{lastname}}</span></p>'+
 			    		'<p class="nomEdad"><span>{{title}}</span></p>'+
 			    		'<p class="nomSede"><span>{{squad}}</span></p>'+
 					'</div>'+
 					'<div class="col s2 m2">'+
-						'<div class="vermas pointer" data-developer-id="{{idStudent}}">'+
+						'<div class="vermas pointer" data-developer-id="{{developerId}}">'+
 		    				'<a id="enlace"><i class="fa fa-plus-circle fa-3x ic-color" aria-hidden="true"></i></a>'+
 						'</div>'+
 					'</div>'+
@@ -42,17 +42,16 @@ var ajaxStudents = function(){
 			var templateStudent= "";
 			$.each(response.squads, function(i, squads){
 				$.each(squads.Developers, function(j, developer){
-					if(developer.photoUrl == null){
+					if(!developer.photoUrl){
 						developer.photoUrl = "../img/developers/usercoder.png"
 					}
-					templateStudent += template
-											.replace("{{image}}", developer.photoUrl)
-											.replace("{{nombre}}", developer.name)
-											.replace("{{apellido}}", developer.lastname)
+					templateStudent += template.replace(/{{name}}/g, developer.name)
+											.replace(/{{lastname}}/g, developer.lastname)
 											.replace("{{title}}", developer.title)
 											.replace("{{squad}}", squads.name)
-											.replace("{{idSquad}}", squads.id)
-											.replace("{{idStudent}}", developer.id);
+											.replace("{{image}}", developer.photoUrl)
+											.replace("{{squadId}}", squads.id)
+											.replace("{{developerId}}", developer.id);
 				});			
 			});
 			$("#contenedor").html(templateStudent);
