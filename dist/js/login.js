@@ -1,7 +1,7 @@
 var loadPage = function() {
 	var status = sessionStorage.getItem("status") == null ? false : sessionStorage.getItem("status");
 	if(status) {
-		window.location.href ="/estudiantes.html";
+		window.location.href ="/students.html";
 	}
 	$("#go").click(validate);
 };

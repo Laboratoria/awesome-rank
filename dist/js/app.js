@@ -30,8 +30,14 @@ var guardarDirigir= function(){
 };
 
 var ajaxStudents = function(){
+	var user = JSON.parse(sessionStorage.getItem('user'));
+	console.log(user);
+	var filter = {
+		campusId: user.CampusId
+	};
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
+		data: filter,
 		type: "GET",
 		success: function(response){
 			var templateStudent= "";
