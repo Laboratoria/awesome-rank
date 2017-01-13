@@ -31,9 +31,12 @@ var template =	'<div>'+
 				'</div>';
 
 var loadPage = function() {
+	var user = JSON.parse(sessionStorage.getItem("user"));
+	var filter = { campusId: user.CampusId };
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/ranking",
 		type: "GET",
+		data: filter,
 		success: function(response){
 			var developer;
 			for (var i = 0, len = response.ranking[0].length; i < len; i ++) {
