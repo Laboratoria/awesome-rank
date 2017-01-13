@@ -2,7 +2,7 @@ var template =	'<div>'+
 					'<div class="row s-m">'+
 						'<div class="col s4 m4">'+
 							'<div class="image-profile">'+
-	            		'<img src="{{image}}">'+
+	            		'<img src="{{image}}" alt="{{name}} {{lastname}}">'+
 	          		'</div>'+
 						'</div>'+
 						'<div class="col s8 m8">'+
@@ -41,13 +41,13 @@ var loadPage = function() {
 			var developer;
 			for (var i = 0, len = response.ranking[0].length; i < len; i ++) {
 				developer = response.ranking[0][i];
-				$("#results").append(template.replace(/{{name}}/g, developer.name)
-											 	.replace("{{position}}", i+1)
-					                        	.replace(/{{lastname}}/g, developer.lastname)
-					                        	.replace("{{image}}", developer.photoUrl)
+				$("#results").append(template.replace("{{position}}", i+1)
+												.replace(/{{name}}/g, developer.name)
+											 	.replace(/{{lastname}}/g, developer.lastname)
+					                        	.replace("{{image}}", (developer.photoUrl === null) ? "../img/developers/usercoder.png" : developer.photoUrl)
 					                        	.replace("{{title}}", developer.title)
 					                        	.replace("{{squad}}", developer.squad)
-					                        	.replace("{{average-tech}}", Number(developer.avgtech.toFixed(2)))
+					                        	.replace("{{average-tech}}", Number(developer.avgtech).toFixed(2))
 					                        	.replace("{{average-hse}}", Number(developer.avghse).toFixed(2)));
 			}
 		}
