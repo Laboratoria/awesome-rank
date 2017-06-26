@@ -1,4 +1,4 @@
-var template=	'<div class="card contiene col s12 m12" data-squad-id={{squadId}}>'+
+var template=	'<div class="card contiene col s12 m12 student pointer" data-squad-id={{squadId}} data-developer-id="{{developerId}}"">'+
 					'<div class="col s4 m4">'+
 			   			'<div class="image">'+
 			   				'<img src="{{image}}" alt="{{name}} {{lastname}}">'+
@@ -10,7 +10,7 @@ var template=	'<div class="card contiene col s12 m12" data-squad-id={{squadId}}>
 			    		'<p class="nomSede"><span>{{squad}}</span></p>'+
 					'</div>'+
 					'<div class="col s2 m2">'+
-						'<div class="vermas pointer" data-developer-id="{{developerId}}">'+
+						'<div class="vermas">'+
 		    				'<a id="enlace"><i class="fa fa-plus-circle fa-3x ic-color" aria-hidden="true"></i></a>'+
 						'</div>'+
 					'</div>'+
@@ -25,7 +25,7 @@ var plantillaCreditos = '<div class="card-credit center-align">'+
 
 var guardarDirigir= function(){
 	var self = $(this).attr("data-developer-id");
-	var idSq = $(this).parents().eq(1).attr("data-squad-id");
+	var idSq = $(this).attr("data-squad-id");
 	window.location.href= "profile.html" + "?developer=" + self + "&squad=" + idSq;
 };
 
@@ -52,7 +52,7 @@ var ajaxStudents = function(){
 											.replace("{{image}}", developer.photoUrl)
 											.replace("{{squadId}}", squads.id)
 											.replace("{{developerId}}", developer.id);
-				});			
+				});
 			});
 			$("#contenedor").html(templateStudent);
 		}
@@ -63,7 +63,6 @@ var ajaxStudents = function(){
       closeOnClick: true,
       draggable: true
     });
-  $("#contenedor").on("click", ".vermas", guardarDirigir);
 }
 
 var ajaxCreditos = function(){
@@ -94,5 +93,6 @@ var cargaPag = function(){
 	ajaxStudents();
 	ajaxCreditos();
 	$(".btn-logout").click(logOut);
+  	$("#contenedor").on("click", ".student", guardarDirigir);
 }
 $(document).ready(cargaPag);
