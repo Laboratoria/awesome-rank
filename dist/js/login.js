@@ -11,16 +11,17 @@ $(document).ready(loadPage);
 var showMessage = function(){
 	swal({
 		title: "",
-		text: "Username or password invalid",
-	  type: "error",
-	  confirmButtonColor: "#F9A91A",
-	  confirmButtonText: "OK",
-	  closeOnConfirm: false,
-	  closeOnCancel: false
+		text: "Invalid username and/or password",
+		type: "error",
+		confirmButtonColor: "#F9A91A",
+		confirmButtonText: "OK",
+		closeOnConfirm: false,
+		closeOnCancel: false
 	});
 };
 
-var validate = function() {
+var validate = function(e) {
+	e.preventDefault();
 	var name = $("#name").val().trim().length;
 	var password = $("#password").val().trim().length;
 	var id = $("#name").val();
@@ -28,10 +29,10 @@ var validate = function() {
 
 	if (name > 0 && password > 0) {
 		$.post("http://awesome-rank-api.herokuapp.com/api/login", {username: id, password: pass}, function(datos, status,xhr) {
-			sessionStorage.setItem("status", datos.success ? 1 : 0);
-			sessionStorage.setItem("user", JSON.stringify(datos.user));
-			if(datos.success === true) {
-				window.location.href = "students.html";
+			if (datos.success === true) {
+				sessionStorage.setItem("status", datos.success ? 1 : 0);
+				sessionStorage.setItem("user", JSON.stringify(datos.user));
+				window.location.href = "estudiantes.html";
 			} else {
 				showMessage();
 			}
