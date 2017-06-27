@@ -4,7 +4,7 @@ var mockup =	'<div class="row profile" data-id="{{id}}">' +
 						'<h5 class="name">{{name}} {{lastname}}</h5>' +
 						'<p>{{title}}</p>' +
 						'<p>{{squad}}</p>' +
-						'<a target="_blank" href={{link}} class="record">RECORD EN CLASE ▷</a>' +
+						'<a target="_blank" href={{link}} class="record">VIEW HISTORIC PROFILE ▷</a>' +
 					'</div>' +
  				'</div>';
 
@@ -79,9 +79,9 @@ var profile = function(){
 														.replace("{{title}}", developer.title)
 														.replace("{{squad}}", squad.name)
 														.replace("{{link}}", developer.captainLink)
-														.replace("{{id}}", developer.id));			
+														.replace("{{id}}", developer.id));
 						}
-					});				
+					});
 				}
 			});
 		}
@@ -151,7 +151,7 @@ var savePoints = function() {
 		console.log(response);
 		swal({
 			title: "Awesome Rank",
-			text: "Your score has been saved successfully.",
+			text: "Your score has been sent successfully.",
 			type: "success",
 			confirmButtonColor: "#F9A91A",
 			confirmButtonText: "OK",
