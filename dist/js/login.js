@@ -1,7 +1,7 @@
 var loadPage = function() {
 	var status = sessionStorage.getItem("status") == null ? false : sessionStorage.getItem("status");
 	if(status) {
-		window.location.href ="/students.html";
+		window.location.href ="./students.html";
 	}
 	$("#go").click(validate);
 };
@@ -18,6 +18,9 @@ var showMessage = function(){
 		closeOnConfirm: false,
 		closeOnCancel: false
 	});
+
+	$("#go").removeAttr("disabled");
+	$(".logo2").addClass("hide");
 };
 
 var validate = function(e) {
@@ -27,12 +30,15 @@ var validate = function(e) {
 	var id = $("#name").val();
 	var pass = $("#password").val();
 
+	$(this).attr("disabled", "disabled");
+	$(".logo2").removeClass("hide");
+
 	if (name > 0 && password > 0) {
 		$.post("http://awesome-rank-api.herokuapp.com/api/login", {username: id, password: pass}, function(datos, status,xhr) {
 			if (datos.success === true) {
 				sessionStorage.setItem("status", datos.success ? 1 : 0);
 				sessionStorage.setItem("user", JSON.stringify(datos.user));
-				window.location.href = "estudiantes.html";
+				window.location.href = "./students.html";
 			} else {
 				showMessage();
 			}
