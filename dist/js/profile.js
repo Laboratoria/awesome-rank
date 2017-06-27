@@ -9,24 +9,24 @@ var mockup =	'<div class="row profile" data-id="{{id}}">' +
  				'</div>';
 
 var templateSocial =	'<div class="question" id="{{id}}">' +
-	                  		'<h6>{{social}}</h6>' +
+	                  		'<h6>{{social}}<i class="large material-icons info">info_outline</i></h6>' +
 	                  		'<div class="demo">' +
-		                    	'<i class="small material-icons">done</i>' +
-		                    	'<i class="small material-icons">done</i>' +
-		                    	'<i class="small material-icons">done</i>' +
-		                    	'<i class="small material-icons">done</i>' +
-		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
 	                  		'</div>' +
 	                	'</div>';
 
 var templateTechnical =	'<div class="question" id="{{id}}">' +
-	                  		'<h6>{{technical}}</h6>' +
+	                  		'<h6>{{technical}}<i class="large material-icons info">info_outline</i></h6>' +
 	                  		'<div class="demo">' +
-		                    	'<i class="small material-icons">done</i>' +
-		                    	'<i class="small material-icons">done</i>' +
-		                    	'<i class="small material-icons">done</i>' +
-		                    	'<i class="small material-icons">done</i>' +
-		                    	'<i class="small material-icons">done</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="medium material-icons star">star</i>' +
 	                  		'</div>' +
 		                '</div>';
 
@@ -35,7 +35,7 @@ var loadPag = function() {
 	scoreSocial();
 	scoreTechnical();
 	$(".btn-save").click(savePoints);
-	$(document).on("click", ".small", marcarPuntaje);
+	$(document).on("click", ".star", marcarPuntaje);
 };
 
 $(document).ready(loadPag);
