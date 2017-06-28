@@ -1,4 +1,4 @@
-var template =	'<div>'+
+var template =	'<div class="card">'+
 					'<div class="row s-m">'+
 						'<div class="col s4 m4">'+
 							'<div class="image-profile">'+
