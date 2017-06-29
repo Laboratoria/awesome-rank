@@ -9,7 +9,8 @@ var mockup =	'<div class="row profile" data-id="{{id}}">' +
  				'</div>';
 
 var templateSocial =	'<div class="question" id="{{id}}">' +
-	                  		'<h6>{{social}}<i class="large material-icons info">info_outline</i></h6>' +
+	                  		'<h6>{{social}}<i class="large material-icons info" ' +
+												'data-target="skill-info">info_outline</i></h6>' +
 	                  		'<div class="demo">' +
 		                    	'<i class="medium material-icons star">star</i>' +
 		                    	'<i class="medium material-icons star">star</i>' +
@@ -20,22 +21,27 @@ var templateSocial =	'<div class="question" id="{{id}}">' +
 	                	'</div>';
 
 var templateTechnical =	'<div class="question" id="{{id}}">' +
-	                  		'<h6>{{technical}}<i class="large material-icons info">info_outline</i></h6>' +
-	                  		'<div class="demo">' +
-		                    	'<i class="medium material-icons star">star</i>' +
-		                    	'<i class="medium material-icons star">star</i>' +
-		                    	'<i class="medium material-icons star">star</i>' +
-		                    	'<i class="medium material-icons star">star</i>' +
-		                    	'<i class="medium material-icons star">star</i>' +
-	                  		'</div>' +
-		                '</div>';
+		                  		'<h6>{{technical}}<i class="large material-icons info" ' +
+													'data-target="skill-info">info_outline</i></h6>' +
+		                  		'<div class="demo">' +
+			                    	'<i class="medium material-icons star">star</i>' +
+			                    	'<i class="medium material-icons star">star</i>' +
+			                    	'<i class="medium material-icons star">star</i>' +
+			                    	'<i class="medium material-icons star">star</i>' +
+			                    	'<i class="medium material-icons star">star</i>' +
+		                  		'</div>' +
+			                	'</div>';
+
+var questions = [];
 
 var loadPag = function() {
 	profile();
 	scoreSocial();
 	scoreTechnical();
+	$('.modal').modal();
 	$(".btn-save").click(savePoints);
 	$(document).on("click", ".star", marcarPuntaje);
+	$(document).on("click", ".info", showSkillDetail);
 };
 
 $(document).ready(loadPag);
@@ -49,7 +55,8 @@ var marcarPuntaje = function(){
 var profile = function(){
 	var user = JSON.parse(sessionStorage.getItem('user'));
 	var filter = {
-		campusId: user.CampusId
+		campusId: user.CampusId,
+		userId: user.id
 	};
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
@@ -93,18 +100,19 @@ var scoreSocial = function(){
 		url:"https://awesome-rank-api.herokuapp.com/api/questions",
 		type: "GET",
 		success: function(response){
-			$.each(response.questions, function(i, question) {
+			questions = response.questions;
+			$.each(questions, function(i, question) {
 				if (question.type === "hse-1") {
-					$("#social1").append(templateSocial.replace("{{social}}", question.description)
+					$("#social1").append(templateSocial.replace("{{social}}", question.title)
 														.replace("{{id}}", question.id));
 				} else if (question.type === "hse-2") {
-					$("#social2").append(templateSocial.replace("{{social}}", question.description)
+					$("#social2").append(templateSocial.replace("{{social}}", question.title)
 														.replace("{{id}}", question.id));
 				} else if (question.type === "hse-3") {
-					$("#social3").append(templateSocial.replace("{{social}}", question.description)
+					$("#social3").append(templateSocial.replace("{{social}}", question.title)
 														.replace("{{id}}", question.id));
 				} else if (question.type === "hse-4") {
-					$("#social4").append(templateSocial.replace("{{social}}", question.description)
+					$("#social4").append(templateSocial.replace("{{social}}", question.title)
 														.replace("{{id}}", question.id));
 				}
 			});
@@ -119,7 +127,7 @@ var scoreTechnical = function(){
 		success: function(response){
 			$.each(response.questions, function(i, question) {
 				if (question.type === "tech") {
-					$("#technical").append(templateTechnical.replace("{{technical}}", question.description)
+					$("#technical").append(templateTechnical.replace("{{technical}}", question.title)
 															.replace("{{id}}", question.id));
 				}
 			});
@@ -163,3 +171,12 @@ var savePoints = function() {
 		$(".btn-save").removeAttr("disabled");
 	});
 };
+
+var showSkillDetail = function () {
+	var id = $(this).parents(".question").attr("id");
+	var skill = questions.find(function (question) {
+		return question.id == id;
+	});
+	$("#skill-title").text(skill.title);
+	$("#skill-description").text(skill.description);
+}

@@ -32,7 +32,8 @@ var guardarDirigir= function(){
 var ajaxStudents = function(){
 	var user = JSON.parse(sessionStorage.getItem('user'));
 	var filter = {
-		campusId: user.CampusId
+		campusId: user.CampusId,
+		userId: user.id
 	};
 	$.ajax({
 		url:"https://awesome-rank-api.herokuapp.com/api/developers",
