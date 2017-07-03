@@ -9,8 +9,7 @@ var mockup =	'<div class="row profile" data-id="{{id}}">' +
  				'</div>';
 
 var templateSocial =	'<div class="question" id="{{id}}">' +
-	                  		'<h6>{{social}}<i class="large material-icons info" ' +
-												'data-target="skill-info">info_outline</i></h6>' +
+	                  		'<h6>{{social}}</h6>' +
 	                  		'<div class="demo">' +
 		                    	'<i class="medium material-icons star">star</i>' +
 		                    	'<i class="medium material-icons star">star</i>' +
@@ -21,8 +20,7 @@ var templateSocial =	'<div class="question" id="{{id}}">' +
 	                	'</div>';
 
 var templateTechnical =	'<div class="question" id="{{id}}">' +
-		                  		'<h6>{{technical}}<i class="large material-icons info" ' +
-													'data-target="skill-info">info_outline</i></h6>' +
+		                  		'<h6>{{technical}}</h6>' +
 		                  		'<div class="demo">' +
 			                    	'<i class="medium material-icons star">star</i>' +
 			                    	'<i class="medium material-icons star">star</i>' +
@@ -42,6 +40,14 @@ var loadPag = function() {
 	$(".btn-save").click(savePoints);
 	$(document).on("click", ".star", marcarPuntaje);
 	$(document).on("click", ".info", showSkillDetail);
+	$(".skill").collapsible({
+		onOpen: function (e) {
+			var initialPosition = parseInt(e.offset().top);
+			$('html, body').animate({
+			    scrollTop: initialPosition
+			}, 400);
+		}
+	});
 };
 
 $(document).ready(loadPag);
@@ -179,4 +185,4 @@ var showSkillDetail = function () {
 	});
 	$("#skill-title").text(skill.title);
 	$("#skill-description").text(skill.description);
-}
+};
