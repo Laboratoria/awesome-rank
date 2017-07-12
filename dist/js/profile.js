@@ -11,22 +11,22 @@ var mockup =	'<div class="row profile" data-id="{{id}}">' +
 var templateSocial =	'<div class="question" id="{{id}}">' +
 	                  		'<h6>{{social}}</h6>' +
 	                  		'<div class="demo">' +
-		                    	'<i class="medium material-icons star">star</i>' +
-		                    	'<i class="medium material-icons star">star</i>' +
-		                    	'<i class="medium material-icons star">star</i>' +
-		                    	'<i class="medium material-icons star">star</i>' +
-		                    	'<i class="medium material-icons star">star</i>' +
+		                    	'<i class="material-icons star medium">star</i>' +
+		                    	'<i class="material-icons star medium">star</i>' +
+		                    	'<i class="material-icons star medium">star</i>' +
+		                    	'<i class="material-icons star medium">star</i>' +
+		                    	'<i class="material-icons star medium">star</i>' +
 	                  		'</div>' +
 	                	'</div>';
 
 var templateTechnical =	'<div class="question" id="{{id}}">' +
 		                  		'<h6>{{technical}}</h6>' +
 		                  		'<div class="demo">' +
-			                    	'<i class="medium material-icons star">star</i>' +
-			                    	'<i class="medium material-icons star">star</i>' +
-			                    	'<i class="medium material-icons star">star</i>' +
-			                    	'<i class="medium material-icons star">star</i>' +
-			                    	'<i class="medium material-icons star">star</i>' +
+			                    	'<i class="material-icons star medium">star</i>' +
+			                    	'<i class="material-icons star medium">star</i>' +
+			                    	'<i class="material-icons star medium">star</i>' +
+			                    	'<i class="material-icons star medium">star</i>' +
+			                    	'<i class="material-icons star medium">star</i>' +
 		                  		'</div>' +
 			                	'</div>';
 
