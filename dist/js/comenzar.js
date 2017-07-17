@@ -1,4 +1,4 @@
-var templateSocial = '<div id="{{id}}">' + 
+var templateSocial = '<div id="{{id}}">' +
 						'<h5>{{social}}</h5>' +
 					'</div>';
 
@@ -40,14 +40,14 @@ $(document).ready(loadPage);
 var social = function() {
 
 	$.ajax({
-		url:"https://awesome-rank-api.herokuapp.com/api/questions",
+		url:"https://awesome-rank-api-test.herokuapp.com/api/questions",
 		type: "GET",
 		success: function(response){
 			$.each(response.questions, function(i, question) {
 				if (question.type === "hse-1") {
 					$("#social1").append(templateSocial.replace("{{social}}", question.description)
 										               .replace("{{id}}", question.id));
-					
+
 				} else if (question.type === "hse-2") {
 					$("#social2").append(templateSocial.replace("{{social}}", question.description)
 											           .replace("{{id}}", question.id));
@@ -70,7 +70,7 @@ var social = function() {
 
 var technical = function() {
 	$.ajax({
-		url:"https://awesome-rank-api.herokuapp.com/api/questions",
+		url:"https://awesome-rank-api-test.herokuapp.com/api/questions",
 		type: "GET",
 		success: function(response){
 			$.each(response.questions, function(i, question) {
