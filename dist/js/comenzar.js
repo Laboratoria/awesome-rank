@@ -40,7 +40,7 @@ $(document).ready(loadPage);
 var social = function() {
 
 	$.ajax({
-		url:"https://awesome-rank-api-test/api/questions",
+		url:"https://awesome-rank-api-test.herokuapp.com/api/questions",
 		type: "GET",
 		success: function(response){
 			$.each(response.questions, function(i, question) {
@@ -70,7 +70,7 @@ var social = function() {
 
 var technical = function() {
 	$.ajax({
-		url:"https://awesome-rank-api-test/api/questions",
+		url:"https://awesome-rank-api-test.herokuapp.com/api/questions",
 		type: "GET",
 		success: function(response){
 			$.each(response.questions, function(i, question) {
