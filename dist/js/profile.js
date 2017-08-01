@@ -73,7 +73,7 @@ var profile = function(){
 		userId: user.id
 	};
 	$.ajax({
-		url:"https://awesome-rank-api-test.herokuapp.com/api/developers",
+		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		type: "GET",
 		data: filter,
 		success: function(response){
@@ -118,7 +118,7 @@ var profile = function(){
 
 var getQuestions = function(){
 	$.ajax({
-		url:"https://awesome-rank-api-test.herokuapp.com/api/questions",
+		url:"https://awesome-rank-api.herokuapp.com/api/questions",
 		type: "GET",
 		success: function(response){
 			$.each(response.questions, function(i, question) {
@@ -166,7 +166,7 @@ var savePoints = function() {
 		};
 		ratings.push(rating);
 	});
-	$.post("https://awesome-rank-api-test.herokuapp.com/api/ratings", {
+	$.post("https://awesome-rank-api.herokuapp.com/api/ratings", {
 		ratings: JSON.stringify(ratings)
 	}, function(response) {
 		console.log(response);

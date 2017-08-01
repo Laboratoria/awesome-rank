@@ -34,7 +34,7 @@ var validate = function(e) {
 	$(".logo2").removeClass("hide");
 
 	if (name > 0 && password > 0) {
-		$.post("https://awesome-rank-api-test.herokuapp.com/api/login", {username: id, password: pass}, function(datos, status,xhr) {
+		$.post("https://awesome-rank-api.herokuapp.com/api/login", {username: id, password: pass}, function(datos, status,xhr) {
 			if (datos.success === true) {
 				sessionStorage.setItem("status", datos.success ? 1 : 0);
 				sessionStorage.setItem("user", JSON.stringify(datos.user));

@@ -35,7 +35,7 @@ var loadPage = function() {
 	var user = JSON.parse(sessionStorage.getItem("user"));
 	var filter = { campusId: user.CampusId };
 	$.ajax({
-		url:"https://awesome-rank-api-test.herokuapp.com/api/ranking",
+		url:"https://awesome-rank-api.herokuapp.com/api/ranking",
 		type: "GET",
 		data: filter,
 		success: function(response){

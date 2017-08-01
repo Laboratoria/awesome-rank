@@ -36,7 +36,7 @@ var ajaxStudents = function(){
 		userId: user.id
 	};
 	$.ajax({
-		url:"https://awesome-rank-api-test.herokuapp.com/api/developers",
+		url:"https://awesome-rank-api.herokuapp.com/api/developers",
 		data: filter,
 		type: "GET",
 		success: function(response){
