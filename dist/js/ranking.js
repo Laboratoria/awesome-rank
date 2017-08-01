@@ -7,10 +7,11 @@ var template =	'<div class="card">'+
 						'</div>'+
 						'<div class="col s8 m8">'+
 							'<div class="data">'+
-    							'<h5>#{{position}}</h5>'+
+    							'<h5 class="position">{{position}}</h5>'+
     							'<h6>{{name}} {{lastname}}</h6>'+
     							'<p>{{title}}</p>'+
     							'<p>{{squad}}</p>'+
+    							'<p class="ranking">Ranking bootcamp #{{ranking}}</p>'+
 							'</div>'+
 						'</div>'+
 					'</div>'+
@@ -34,7 +35,7 @@ var loadPage = function() {
 	var user = JSON.parse(sessionStorage.getItem("user"));
 	var filter = { campusId: user.CampusId };
 	$.ajax({
-		url:"https://awesome-rank-api-test.herokuapp.com/api/ranking",
+		url:"https://awesome-rank-api-test/api/ranking",
 		type: "GET",
 		data: filter,
 		success: function(response){
@@ -47,6 +48,7 @@ var loadPage = function() {
 					                        	.replace("{{image}}", (developer.photoUrl === null) ? "../img/developers/usercoder.png" : developer.photoUrl)
 					                        	.replace("{{title}}", developer.title)
 					                        	.replace("{{squad}}", developer.squad)
+					                        	.replace("{{ranking}}", developer.ranking === null ? 0 : developer.ranking)
 					                        	.replace("{{average-tech}}", Number(developer.avgtech).toFixed(2))
 					                        	.replace("{{average-hse}}", Number(developer.avghse).toFixed(2)));
 			}

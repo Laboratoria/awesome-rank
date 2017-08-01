@@ -43,8 +43,7 @@ var questions = [];
 
 var loadPag = function() {
 	profile();
-	scoreSocial();
-	scoreTechnical();
+	getQuestions();
 	$('.modal').modal();
 	$(".btn-save").click(savePoints);
 	$(document).on("click", ".star", marcarPuntaje);
@@ -74,7 +73,7 @@ var profile = function(){
 		userId: user.id
 	};
 	$.ajax({
-		url:"https://awesome-rank-api-test.herokuapp.com/api/developers",
+		url:"https://awesome-rank-api-test/api/developers",
 		type: "GET",
 		data: filter,
 		success: function(response){
@@ -95,6 +94,13 @@ var profile = function(){
 							if(developer.photoUrl == null){
 								developer.photoUrl = "../img/developers/usercoder.png"
 							}
+
+							if (developer.title === 'UX Designer') {
+								$(".tech-skills").hide();
+							} else {
+								$(".uxd-skills").hide();
+							}
+
 							$("#students").append(mockup.replace("{{image}}", developer.photoUrl)
 														.replace("{{name}}", developer.name)
 														.replace("{{lastname}}", developer.lastname)
@@ -110,40 +116,32 @@ var profile = function(){
 	});
 };
 
-var scoreSocial = function(){
+var getQuestions = function(){
 	$.ajax({
-		url:"https://awesome-rank-api-test.herokuapp.com/api/questions",
-		type: "GET",
-		success: function(response){
-			questions = response.questions;
-			$.each(questions, function(i, question) {
-				if (question.type === "hse-1") {
-					$("#social1").append(templateSocial.replace("{{social}}", question.title)
-														.replace("{{id}}", question.id));
-				} else if (question.type === "hse-2") {
-					$("#social2").append(templateSocial.replace("{{social}}", question.title)
-														.replace("{{id}}", question.id));
-				} else if (question.type === "hse-3") {
-					$("#social3").append(templateSocial.replace("{{social}}", question.title)
-														.replace("{{id}}", question.id));
-				} else if (question.type === "hse-4") {
-					$("#social4").append(templateSocial.replace("{{social}}", question.title)
-														.replace("{{id}}", question.id));
-				}
-			});
-		}
-	});
-};
-
-var scoreTechnical = function(){
-	$.ajax({
-		url:"https://awesome-rank-api-test.herokuapp.com/api/questions",
+		url:"https://awesome-rank-api-test/api/questions",
 		type: "GET",
 		success: function(response){
 			$.each(response.questions, function(i, question) {
 				if (question.type === "tech") {
 					$("#technical").append(templateTechnical.replace("{{technical}}", question.title)
 															.replace("{{id}}", question.id));
+				} else if (question.type === "uxd") {
+					$("#design").append(templateTechnical.replace("{{technical}}", question.title)
+															.replace("{{id}}", question.id));
+				} else {
+					if (question.type === "hse-1") {
+						$("#social1").append(templateSocial.replace("{{social}}", question.title)
+															.replace("{{id}}", question.id));
+					} else if (question.type === "hse-2") {
+						$("#social2").append(templateSocial.replace("{{social}}", question.title)
+															.replace("{{id}}", question.id));
+					} else if (question.type === "hse-3") {
+						$("#social3").append(templateSocial.replace("{{social}}", question.title)
+															.replace("{{id}}", question.id));
+					} else if (question.type === "hse-4") {
+						$("#social4").append(templateSocial.replace("{{social}}", question.title)
+															.replace("{{id}}", question.id));
+					}
 				}
 			});
 		}
@@ -168,7 +166,7 @@ var savePoints = function() {
 		};
 		ratings.push(rating);
 	});
-	$.post("https://awesome-rank-api-test.herokuapp.com/api/ratings", {
+	$.post("https://awesome-rank-api-test/api/ratings", {
 		ratings: JSON.stringify(ratings)
 	}, function(response) {
 		console.log(response);
