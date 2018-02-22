@@ -72,7 +72,7 @@ var ajaxCreditos = function(){
 		type: "GET",
 		success: function(response){
 			var templateCred= "";
-			$.each(response, function(i, developer){
+			$.each(response, function(i, developer) {
 				templateCred += plantillaCreditos
 											.replace("**imagen**", developer.foto)
 											.replace("**name**", developer.nombre)
